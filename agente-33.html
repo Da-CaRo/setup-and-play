@@ -26,6 +26,35 @@
         .intro {
             text-align: center;
             color: #555;
+            margin-bottom: 2rem;
+        }
+        
+        /* Estilos adicionales para la guía de juego */
+        .game-section h2 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        .game-section h3 {
+            color: #555;
+            margin-top: 1rem;
+        }
+        .game-section ol, .game-section ul {
+            padding-left: 20px;
+        }
+        .game-section li {
+            margin-bottom: 0.5rem;
+        }
+        .example {
+            background-color: #e9f7e9;
+            border-left: 5px solid #4CAF50;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .example strong {
+            color: #388e3c;
         }
     </style>
 </head>
@@ -34,8 +63,133 @@
     <div class="container">
         <h1>Guía de Agente 33</h1>
         <p class="intro">
-            -
+            Reglas para el juego de deducción por palabras, Código Secreto (Codenames), en dos variantes: Clásico (2 Equipos) y Multiequipo (3 Equipos).
         </p>
+
+        <section id="introduccion" class="game-section">
+            <h2>🕵️ Disposición de la Mesa y Roles</h2>
+            <p>
+                <strong>Código Secreto</strong> es un juego de mesa de intriga y espionaje. El objetivo es que un equipo contacte a todos sus agentes secretos antes que los equipos rivales.
+            </p>
+            <ol>
+                <li>Los jugadores se dividen en los equipos participantes (Rojo y Azul para Clásico; Rojo, Azul y Verde para Multiequipo).</li>
+                <li>Cada equipo elige un <strong>Jefe de Espías</strong>. Los Jefes se sientan juntos a un lado de la mesa, y el resto de los jugadores (los <strong>Agentes de Campo</strong>) se sientan enfrente.</li>
+                <li>Se colocan al azar <strong>25 cartas de Nombre en Clave</strong> (palabras) en una cuadrícula de 5x5 en el centro de la mesa.</li>
+                <li>Los Jefes de Espías roban la <strong>Carta Clave</strong> y la colocan en un soporte de manera que solo ellos puedan verla. Esta clave desvela la identidad secreta de las 25 palabras.</li>
+            </ol>
+        </section>
+
+        <section id="preparacion-modos" class="game-section">
+            <h2>👥 Preparación Específica según el Modo de Juego</h2>
+
+            <h3>Modo Clásico: 2 Equipos (Rojo y Azul)</h3>
+            <p>Se juega con los componentes estándar (2 equipos, 4 a 8 jugadores recomendados).</p>
+            <ul>
+                <li>La Carta Clave revela las siguientes identidades:
+                    <ul>
+                        <li><strong>Agentes Rojos / Azules:</strong> Un equipo tiene 9 agentes y el otro 8.</li>
+                        <li><strong>Civiles Inocentes:</strong> 7 palabras.</li>
+                        <li><strong>Asesino:</strong> 1 palabra.</li>
+                    </ul>
+                </li>
+                <li>El equipo que empieza (con 9 agentes) está indicado por el color de las 4 luces en el borde de la Carta Clave.</li>
+                <li>Los turnos se alternan entre Rojo y Azul.</li>
+            </ul>
+
+            <h3>Modo Multiequipo: 3 Equipos (Rojo, Azul y Verde)</h3>
+            <p>Se juega con una Carta Clave especial para tres equipos (3 equipos, 6 a 12 jugadores recomendados).</p>
+            <ul>
+                <li>La Carta Clave revela las siguientes identidades:
+                    <ul>
+                        <li><strong>Agentes Rojos:</strong> 8 palabras.</li>
+                        <li><strong>Agentes Azules:</strong> 8 palabras.</li>
+                        <li><strong>Agentes Verdes:</strong> 8 palabras.</li>
+                        <li><strong>Asesino:</strong> 1 palabra.</li>
+                    </ul>
+                </li>
+                <li><strong>Importante:</strong> En este modo, <strong>NO hay Civiles Inocentes</strong>.</li>
+                <li>Se establece un orden de turno (por ejemplo: Rojo → Azul → Verde).</li>
+            </ul>
+        </section>
+
+<section id="desarrollo" class="game-section">
+            <h2>▶️ Desarrollo del Juego (Común a 2 y 3 Equipos)</h2>
+
+            <ol>
+                <li>El <strong>Jefe de Espías</strong> en turno debe dar una <strong>pista</strong> que consiste únicamente en <strong>una palabra y un número</strong>.
+                    <ul>
+                        <li>La <strong>palabra</strong> es la pista que se relaciona con agentes del equipo.</li>
+                        <li>El <strong>número</strong> indica cuántas palabras en la mesa están relacionadas con esa pista.</li>
+                        <li><strong>Restricción Importante:</strong> La pista no debe ser una palabra derivada, plural, o una forma de conjugación de otra palabra visible en el tablero (por ejemplo, no se puede usar <strong>LÍNEA</strong> si <strong>LÍNEAS</strong> está en el tablero, o <strong>BAILAR</strong> si <strong>BAILANDO</strong> está en el tablero).</li>
+                        <li>El Jefe no puede dar ningún otro indicio, verbal o no verbal.</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h4>💡 Ejemplo de Pista y Riesgo</h4>
+            <div class="example">
+                <p>
+                    El riesgo de una pista es <strong>el peligro de que el Jefe de Espías elija una palabra que también pueda ser relacionada por su equipo con una palabra de otro color.</strong>
+                </p>
+
+                <p>
+                    <strong>Tablero del Jefe Rojo (Visión Secreta):</strong>
+                    <ul>
+                        <li><strong>Agentes Rojos (Meta):</strong> AVIÓN, BARCO, COCHE.</li>
+                        <li><strong>Agente Azul (Rival):</strong> CAMIÓN.</li>
+                    </ul>
+                </p>
+
+                <p>
+                    <strong>⚠️ Escenario de RIESGO ALTO (Fallo):</strong>
+                    </p>
+                <p>
+                    El Jefe Rojo dice: <strong>"Vehículo, 3"</strong>. Esta pista es ambigua, ya que <strong>CAMIÓN</strong> (el rival) también es un vehículo.
+                </p>
+                
+                <p>
+                    Si el equipo Rojo toca <strong>CAMIÓN</strong>:
+                    <ul>
+                        <li>🛑 El turno del equipo Rojo <strong>finaliza inmediatamente</strong>.</li>
+                        <li>🛑 La palabra <strong>CAMIÓN</strong> se cubre con una loseta <strong>Azul</strong>, <strong>regalando un punto</strong> al equipo rival.</li>
+                    </ul>
+                </p>
+                
+                <p>
+                    <strong>✅ Escenario de RIESGO BAJO (Pista Precisa):</strong>
+                    </p>
+                <p>
+                    El Jefe Rojo dice: <strong>"Viaje, 3"</strong>. Esta palabra se relaciona muy bien con <strong>AVIÓN</strong>, <strong>BARCO</strong> y <strong>COCHE</strong>, pero menos con <strong>CAMIÓN</strong>. Si el equipo Rojo adivina sus tres agentes, el turno es un éxito.
+                </p>
+                
+                <p>
+                    <strong>Conclusión:</strong> El Jefe de Espías debe elegir la palabra más <strong>precisa</strong> para evitar la <strong>ambigüedad</strong> que pueda llevar a un Agente Rival, Civil o, peor aún, al Asesino.
+                </p>
+            </div>
+            
+            <ol start="2">
+                <li>Los <strong>Agentes de Campo</strong> discuten y <strong>tocan una de las 25 cartas</strong>. El Jefe de Espías cubre la palabra según su identidad:
+                    <ul>
+                        <li>✅ <strong>Agente Propio:</strong> El equipo sigue adivinando. Hasta cubrir el número dado en la pista.</li>
+                        <li>🛑 <strong>Agente Rival (Rojo, Azul, Verde):</strong> La palabra se cubre con la loseta del rival. El turno del equipo finaliza inmediatamente.</li>
+                        <li>🛑 <strong>Civil Inocente (Amarillo, solo Modo Clásico):</strong> La palabra se cubre con una loseta de Civil. El turno del equipo finaliza inmediatamente.</li>
+                        <li>💀 <strong>Asesino:</strong> El juego termina inmediatamente y <strong>el equipo que lo ha tocado pierde la partida</strong>.</li>
+                    </ul>
+                </li>
+                <li>El turno finaliza cuando: el equipo acierta todas las palabras de la pista (y decide no arriesgar), tocan un Agente Rival/Civil, o deciden plantarse. Luego es el turno del siguiente equipo.</li>
+            </ol>
+        </section>
+
+        <section id="fin-partida" class="game-section">
+            <h2>🏆 Fin de la Partida (Común a 2 y 3 Equipos)</h2>
+            
+            <p>La partida puede terminar de dos maneras:</p>
+            <ul>
+                <li><strong>Victoria:</strong> El equipo que logre <strong>cubrir primero a todos sus Agentes Secretos</strong> (8, 9, o 8/8/8) será el <strong>ganador</strong>.</li>
+                <li><strong>Derrota Inmediata:</strong> Si un equipo contacta la carta del <strong>Asesino</strong>, el juego termina y ese equipo pierde inmediatamente.</li>
+            </ul>
+        </section>
+
     </div>
     <div id="footer-container"></div>
 </body>
