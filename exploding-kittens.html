@@ -1,135 +1,306 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exploding Kittens - Guía</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>Exploding Kittens | Setup & Play</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             background: #f8f8f8;
         }
+
         .container {
             max-width: 800px;
             margin: 2rem auto;
             background: #fff;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
             padding: 2rem;
         }
+
         h1 {
             text-align: center;
             margin-bottom: 1rem;
         }
+
         .intro {
             text-align: center;
             color: #555;
         }
+
         ul {
             margin-top: 1rem;
         }
     </style>
 </head>
+
 <body>
     <div id="header-container"></div>
     <div class="container">
-        <h1>Exploding Kittens</h1>
-        <div style="text-align:center; margin-bottom:1.2em;">
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 border-b pb-2">📜 Fases de Juego</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="bg-blue-50 p-4 rounded-lg shadow-sm border border-blue-200">
+                <h3 class="text-xl font-semibold mb-2 flex items-center text-blue-800">
+                    <span class="mr-2 text-2xl">🎯</span> Objetivo
+                </h3>
+                <p>Ser el último jugador en pie evitando explotar con un Exploding Kitten.</p>
+            </div>
+
+            <div class="bg-green-50 p-4 rounded-lg shadow-sm border border-green-200">
+                <h3 class="text-xl font-semibold mb-2 flex items-center text-green-800">
+                    <span class="mr-2 text-2xl">🛠️</span> Preparación
+                </h3>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Separa las cartas de "Exploding Kitten" y "Defuse".</li>
+                    <li>Baraja el resto de cartas. Reparte <strong>7 cartas</strong> a cada jugador.</li>
+                    <li>Da una carta extra de <strong>"Defuse"</strong> a cada jugador.</li>
+                    <li>El resto de "Defuse" y los "Exploding Kittens" (1 carta menos que el número de jugadores) se
+                        mezclan para formar el <strong>mazo central</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="bg-yellow-50 p-4 rounded-lg shadow-sm border border-yellow-200 col-span-1 md:col-span-2">
+                <h3 class="text-xl font-semibold mb-2 flex items-center text-yellow-800">
+                    <span class="mr-2 text-2xl">🔄</span> Turno de Juego
+                </h3>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li><strong>Jugar Cartas:</strong> Puedes jugar tantas cartas de acción como quieras (o ninguna). Sigue la
+                        instrucción de la carta y colócala en la pila de descartes.</li>
+                    <li><strong>Finalizar Turno:</strong> Tu turno siempre acaba robando una carta del mazo, salvo que una carta te
+                        lo impida.</li>
+                    <li><strong>Exploding Kitten:</strong> Si robas un Exploding Kitten:
+                        <ul class="ml-4 mt-1 list-circle list-inside">
+                            <li>Si tienes un <strong>Defuse</strong>, úsalo para evitar explotar. Debes reintroducir el Exploding
+                                Kitten en el mazo donde quieras (puedes engañar a los demás).</li>
+                            <li>Si <strong>no</strong> tienes Defuse, quedas eliminado.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-red-50 p-4 rounded-lg shadow-sm border border-red-200">
+                <h3 class="text-xl font-semibold mb-2 flex items-center text-red-800">
+                    <span class="mr-2 text-2xl">💀</span> Eliminación
+                </h3>
+                <p class="text-gray-700">Si explotas (robas un Exploding Kitten y no puedes desactivarlo), quedas fuera
+                    de la partida y tus cartas se descartan.</p>
+            </div>
+
+            <div class="bg-indigo-50 p-4 rounded-lg shadow-sm border border-indigo-200">
+                <h3 class="text-xl font-semibold mb-2 flex items-center text-indigo-800">
+                    <span class="mr-2 text-2xl">🏆</span> Fin de la Partida
+                </h3>
+                <p class="text-gray-700">El último jugador que quede sin explotar es el ganador.</p>
+            </div>
+
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 border-b pb-2">✨ Cartas de Acción y Efectos</h2>
+        <div class="bg-gray-50 p-5 rounded-lg">
+            <ul class="list-none space-y-3">
+                <li>
+                    <h3 class="font-bold text-lg text-red-600">💥 Atacar</h3>
+                    <p class="text-gray-700">Termina tu turno sin robar y el siguiente jugador debe jugar <strong>dos turnos
+                        seguidos</strong>.</p>
+                </li>
+                <li>
+                    <h3 class="font-bold text-lg text-yellow-600">💨 Saltar (Skip)</h3>
+                    <p class="text-gray-700">Termina tu turno <strong>sin robar carta</strong>. (Una excelente forma de evitar un
+                        Exploding Kitten si lo viste con un Ver el Futuro).</p>
+                </li>
+                <li>
+                    <h3 class="font-bold text-lg text-blue-600">🔀 Barajar (Shuffle)</h3>
+                    <p class="text-gray-700">Baraja el mazo central de forma secreta.</p>
+                </li>
+                <li>
+                    <h3 class="font-bold text-lg text-purple-600">🔮 Ver el Futuro (See the Future)</h3>
+                    <p class="text-gray-700">Mira las <strong>3 primeras cartas</strong> del mazo sin cambiar su orden.</p>
+                </li>
+                <li>
+                    <h3 class="font-bold text-lg text-green-600">🙏 Favor</h3>
+                    <p class="text-gray-700">Elige un jugador para que te dé <strong>una carta de su mano a su elección</strong>.</p>
+                </li>
+                <li>
+                    <h3 class="font-bold text-lg text-pink-600">🚫 Nope (Anular)</h3>
+                    <p class="text-gray-700"><strong>Cancela el efecto</strong> de una carta de acción de otro jugador. Se puede
+                        usar:
+                    <ul class="list-disc list-inside ml-4 mt-1">
+                        <li>Aunque no sea tu turno.</li>
+                        <li>Aunque no vaya la acción contra ti.</li>
+                        <li>Incluso contra otro Nope.</li>
+                        <li><strong>Importante:</strong> No puede cancelar Exploding Kitten o Defuse.</li>
+                    </ul>
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 border-b pb-2">😼 Combos de Cartas de Gato</h2>
+        <div class="bg-gray-50 p-5 rounded-lg">
+            <ul class="list-none space-y-3">
+                <li>
+                    <h3 class="font-bold text-lg text-teal-600">👯 Parejas de Gato (2 Cartas Iguales)</h3>
+                    <p class="text-gray-700">Descarta dos cartas iguales de Gato para robar <strong>una carta aleatoria</strong> de
+                        la mano de otro jugador.</p>
+                </li>
+                <li>
+                    <h3 class="font-bold text-lg text-orange-600">👑 Trío de Gato (3 Cartas Iguales)</h3>
+                    <p class="text-gray-700">Descarta tres cartas iguales de Gato para robar <strong>la carta que quieras</strong> a un
+                        jugador. Si la tiene, te la tiene que dar; si no la tiene, pierdes la oportunidad y las tres
+                        cartas.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="cat-cards-icons"
+            style="display:flex;gap:0.5em;align-items:flex-start;justify-content:center;margin:1.2em 0;padding:0 2em;flex-wrap:wrap;">
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 border-b pb-2">⚠️ Notas Importantes</h2>
+        <div class="bg-gray-100 p-4 rounded-lg">
+            <ul class="list-disc list-inside space-y-1">
+                <li>Siempre debes terminar tu turno robando una carta, salvo que una carta te lo impida.</li>
+                <li>Solo puedes usar un Defuse para evitar explotar, y después debes colocar el Exploding Kitten en el
+                    mazo donde quieras (puedes engañar a los demás).</li>
+            </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 border-b pb-2">📦 Packs y Expansiones</h2>
+        <div id="expansions-content" style="
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap; 
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 1.2em 0 2rem 0;
+            padding: 0 2em;
+        ">
             <a href="exploding-kittens-expansions.html"
                 style="display:inline-block; background:#eaeaea; color:#222; padding:0.5em 1.2em; border-radius:6px; text-decoration:none; font-weight:500; font-size:1.05em; transition:background 0.2s;">Ver
                 packs y expansiones</a>
-        </div>
-        <div id="expansions-icons"
-            style="display:flex;gap:0.5em;align-items:flex-start;justify-content:center;margin:0 0 1.2em 0;padding:0 2em;flex-wrap:wrap;">
-            <!-- Aquí se mostrarán los iconos de las cartas de gato -->
-        </div>
-        <p class="intro">
-            Página dedicada a las reglas y cartas del juego <b>Exploding Kittens</b>.
-        </p>
-        <h2>Reglas Básicas</h2>
-        <ul>
-            <li><b>Objetivo:</b><br>
-                Ser el último jugador en pie evitando explotar con un Exploding Kitten.</li>
-            <li><b>Preparación:</b><br>
-                Separa las cartas de "Exploding Kitten" y "Defuse" del mazo y baraja el resto de cartas.<br>
-                Del mazo barajado, reparte 7 cartas a cada jugador y da una carta extra a cada jugador de "Defuse".<br>
-                El resto de "Defuse" y los "Exploding Kittens" correspondientes (1 carta menos que el numero de jugadores) se mezclan en el mazo y se forma el mazo central.</li>
-            <li><b>Turno de juego:</b><br>
-                En tu turno puedes jugar tantas cartas como quieras (o ninguna). Para jugar una carta, colócala en la pila de descartes y sigue su instrucción.<br>
-                Tu turno acaba robando una carta del mazo. Si robas un Exploding Kitten y tienes un Defuse, puedes usarlo para evitar explotar y meter el Exploding Kitten de nuevo en el mazo donde quieras. Si no tienes Defuse, quedas eliminado.</li>
-            <li><b>Tipos de cartas:</b><br>
-                Hay cartas de acción (Atacar, Saltar, Barajar, Ver el Futuro, Favor, etc.), cartas de Gato (que pueden usarse en parejas para robar una carta a otro jugador), cartas de Exploding Kitten y cartas de Defuse.</li>
-            <li><b>Eliminación:</b><br>
-                Si explotas (robas un Exploding Kitten y no puedes desactivarlo), quedas fuera de la partida y tus cartas se descartan.</li>
-            <li><b>Fin de la partida:</b><br>
-                El último jugador que quede sin explotar es el ganador.</li>
-        </ul>
-        <div style="margin-top:1em;">
-            <b>Resumen de acciones principales:</b>
-            <ul>
-                <li><b>Atacar:</b> Termina tu turno sin robar y el siguiente jugador debe jugar dos turnos seguidos.</li>
-                <li><b>Saltar:</b> Termina tu turno sin robar carta.</li>
-                <li><b>Barajar:</b> Baraja el mazo central.</li>
-                <li><b>Ver el Futuro:</b> Mira las 3 primeras cartas del mazo sin cambiar su orden.</li>
-                <li><b>Favor:</b> Elige un jugador para que te dé una carta de su mano a su elección.</li>
-                <li><b>Nope:</b> Cancela el efecto de una carta de acción de otro jugador (excepto Exploding Kitten y Defuse). Puedes usarlo aunque no sea tu turno, aunque no vaya la acción contra tí o incluso contra otro Nope</li>
-                <li><b>Parejas de Gato:</b> Descarta dos cartas iguales de Gato para robar una carta aleatoria de la mano de otro jugador. O descarta tres cartas iguales de Gato para robar la carta que quieras a un jugador, si la tiene, te la tiene que dar, si no la tiene, pierdes la oportunidad y las tres cartas.</li>
-            </ul>
-            <div id="cat-cards-icons" style="display:flex;gap:0.5em;align-items:flex-start;justify-content:center;margin:0 0 1.2em 0;padding:0 2em;flex-wrap:wrap;">
-                <!-- Aquí se mostrarán los iconos de las cartas de gato -->
+
+            <div id="expansions-icons"
+                style="display:flex;gap:0.5em;align-items:flex-start;justify-content:center;flex-wrap:wrap;">
             </div>
-            </ul>
-            <b>Notas:</b>
-            <ul>
-                <li>Siempre debes terminar tu turno robando una carta, salvo que una carta te lo impida.</li>
-                <li>Solo puedes usar un Defuse para evitar explotar, y después debes colocar el Exploding Kitten en el mazo donde quieras (puedes engañar a los demás).</li>
-            </ul>
         </div>
-        <h2>Cartas</h2>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 border-b pb-2">🃏 Cartas</h2>
         <div id="card-icons-grid" style="
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
             gap: 1.2rem;
             margin: 2rem 0;
             justify-content: center;
             padding: 0 2em;
         "></div>
-        <style>
-            .card-icon {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-            }
-            .card-icon span {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                display: block;
-            }
-        </style>
 
-        <div id="card-modal" style="
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.6);
+    </div>
+    <style>
+        .card-icon {
+            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
-        ">
-            <div style="background: #fff; border-radius: 10px; padding: 2rem; max-width: 350px; width: 90%; text-align: center; position: relative;">
-                <button onclick="closeModal()" style="position: absolute; top: 10px; right: 10px; background: #eee; border: none; border-radius: 50%; width: 28px; height: 28px; font-size: 1.2rem; cursor: pointer;">&times;</button>
-                <img id="modal-img" src="" alt="" style="width: 80px; height: 80px; object-fit: contain; margin-bottom: 1rem;" />
-                <h3 id="modal-title"></h3>
-                <div id="modal-tags" style="margin-bottom: 0.5rem;"></div>
-                <p id="modal-desc" style="color: #444;"></p>
-                <p id="modal-detail" style="color: #666; font-size: 0.97em; margin-top: 1.2em;"></p>
+            text-align: center;
+        }
+
+        .card-icon span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+    </style>
+
+    <div id="card-modal" style="
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.75); /* Fondo más oscuro */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+">
+        <div style="
+        background: #fff; 
+        border-radius: 12px; 
+        padding: 1.5rem; /* Ajuste de padding */
+        max-width: 400px; /* Un poco más ancho */
+        width: 90%; 
+        position: relative;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Sombra destacada */
+        border: 1px solid #ddd; /* Borde sutil */
+        animation: fadeIn 0.3s ease-out; /* Animación simple */
+    ">
+            <button onclick="closeModal()" style="
+                position: absolute; 
+                top: 10px; 
+                right: 10px; 
+                background: #eee; 
+                border: none; 
+                border-radius: 50%; 
+                width: 32px; 
+                height: 32px; 
+                font-size: 1.2rem; 
+                cursor: pointer; 
+                color: #333; 
+                transition: background 0.2s; 
+                line-height: 32px; 
+                text-align: center;
+            ">&times;</button>
+
+            <div style="text-align: center; padding-top: 10px;">
+                <img id="modal-img" src="" alt="" style="
+                width: 80px; 
+                height: 80px; 
+                object-fit: contain; 
+                margin: 0 auto 1rem auto; /* Centrar y margen inferior */
+                border-radius: 8px; /* Borde en la imagen */
+                background: #f8f8f8; /* Fondo sutil para la imagen */
+                padding: 5px;
+            " />
+                <h3 id="modal-title" style="
+                font-size: 1.6rem; 
+                font-weight: 700; 
+                color: #2c3e50; /* Color oscuro para el título */
+                margin-bottom: 0.5rem;
+            "></h3>
+
+                <div id="modal-tags" style="
+                margin-bottom: 1rem;
+                font-size: 0.9em;
+                color: #666;
+            "></div>
+
+                <p id="modal-desc" style="
+                color: #444;
+                text-align: left; /* Alineación a la izquierda para mejor lectura */
+                margin-bottom: 1rem;
+                line-height: 1.5;
+            "></p>
+
+                <div id="modal-detail" style="
+                color: #2980b9; 
+                font-size: 0.95em; 
+                margin-top: 1.5rem;
+                padding: 10px;
+                background: #f0f7ff; /* Fondo azul claro para destacar la regla */
+                border-left: 4px solid #3498db; /* Borde para énfasis */
+                border-radius: 4px;
+                text-align: left;
+            "></div>
             </div>
         </div>
+    </div>
     </div>
     <div id="footer-container"></div>
     <script src="js/include.js"></script>
@@ -220,6 +391,18 @@
             opacity: 1;
             pointer-events: auto;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
     </style>
     <script>
         // Mostrar iconos de las expansiones
@@ -261,8 +444,9 @@
                         <span class="cat-card-name">${cat.name}</span>
                     </div>
                 `).join('');
-            });
-    });
+                });
+        });
     </script>
 </body>
+
 </html>

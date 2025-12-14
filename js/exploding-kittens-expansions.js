@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Referencia al contenedor de expansiones
     const container = document.getElementById('expansions-list');
     Promise.all([
@@ -33,23 +33,81 @@ function setupModal() {
             display: none;
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.75); /* Fondo más oscuro */
             align-items: center;
             justify-content: center;
             z-index: 1000;
         ">
-            <div style="background: #fff; border-radius: 10px; padding: 2rem; max-width: 350px; width: 90%; text-align: center; position: relative;">
-                <button onclick="closeModal()" style="position: absolute; top: 10px; right: 10px; background: #eee; border: none; border-radius: 50%; width: 28px; height: 28px; font-size: 1.2rem; cursor: pointer;">&times;</button>
-                <img id="modal-img" src="" alt="" style="width: 80px; height: 80px; object-fit: contain; margin-bottom: 1rem;" />
-                <h3 id="modal-title"></h3>
-                <div id="modal-tags" style="margin-bottom: 0.5rem;"></div>
-                <p id="modal-desc" style="color: #444;"></p>
-                <p id="modal-detail" style="color: #666; font-size: 0.97em; margin-top: 1.2em;"></p>
+            <div style="
+                background: #fff; 
+                border-radius: 12px; 
+                padding: 1.5rem; /* Ajuste de padding */
+                max-width: 400px; /* Un poco más ancho */
+                width: 90%; 
+                position: relative;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Sombra destacada */
+                border: 1px solid #ddd; /* Borde sutil */
+                animation: fadeIn 0.3s ease-out; /* Requiere el @keyframes fadeIn en el CSS */
+            ">
+                <button onclick="closeModal()" style="
+                    position: absolute; 
+                    top: 10px; right: 10px; 
+                    background: #eee; 
+                    border: none; 
+                    border-radius: 50%; 
+                    width: 32px; height: 32px; /* Botón más grande */
+                    font-size: 1.2rem; 
+                    cursor: pointer; 
+                    color: #333;
+                    transition: background 0.2s;
+                ">&times;</button>
+                
+                <div style="text-align: center; padding-top: 10px;">
+                    <img id="modal-img" src="" alt="" style="
+                        width: 80px; 
+                        height: 80px; 
+                        object-fit: contain; 
+                        margin: 0 auto 1rem auto; /* Centrar y margen inferior */
+                        border-radius: 8px; /* Borde en la imagen */
+                        background: #f8f8f8; /* Fondo sutil para la imagen */
+                        padding: 5px;
+                    " />
+                    <h3 id="modal-title" style="
+                        font-size: 1.6rem; 
+                        font-weight: 700; 
+                        color: #2c3e50; /* Color oscuro para el título */
+                        margin-bottom: 0.5rem;
+                    "></h3>
+                    
+                    <div id="modal-tags" style="
+                        margin-bottom: 1rem;
+                        font-size: 0.9em;
+                        color: #666;
+                    "></div>
+                    
+                    <p id="modal-desc" style="
+                        color: #444;
+                        text-align: left; /* Alineación a la izquierda para mejor lectura */
+                        margin-bottom: 1rem;
+                        line-height: 1.5;
+                    "></p>
+                    
+                    <div id="modal-detail" style="
+                        color: #2980b9; 
+                        font-size: 0.95em; 
+                        margin-top: 1.5rem;
+                        padding: 10px;
+                        background: #f0f7ff; /* Fondo azul claro para destacar la regla */
+                        border-left: 4px solid #3498db; /* Borde para énfasis */
+                        border-radius: 4px;
+                        text-align: left;
+                    "></div>
+                </div>
             </div>
         </div>`;
         document.body.insertAdjacentHTML('beforeend', modalHtml);
     }
-    window.closeModal = function() {
+    window.closeModal = function () {
         document.getElementById('card-modal').style.display = 'none';
     };
 }
@@ -69,10 +127,13 @@ function renderExpansions(expansions, cardIconMap, cardDataMap, container, catCa
                 </div>
                 <div class="cards-grid">
                     ${pack.cards.map(card => `
-                        <div class="card-icon" data-card-id="${card.id}" style="cursor:pointer;">
-                            <img src="${cardIconMap[card.id] || ''}" alt="${card.id}" />
-                            <div class="card-name">${card.id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</div>
-                            <div class="card-count">x${card.count}</div>
+                        <div class="card-icon p-1 bg-white rounded-lg shadow-md border border-gray-100 transition-all duration-200 hover:shadow-lg hover:border-blue-300 cursor-pointer" 
+                             data-card-id="${card.id}">
+                            <div class="flex flex-col items-center justify-start h-full p-1">
+                                <img src="${cardIconMap[card.id] || ''}" alt="${card.id}" />
+                                <div class="card-name w-full px-1">${card.id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</div>
+                                <div class="card-count">x${card.count}</div>
+                            </div>
                         </div>
                     `).join('')}
             </div>
@@ -82,7 +143,7 @@ function renderExpansions(expansions, cardIconMap, cardDataMap, container, catCa
     });
     // Añadir eventos para mostrar el modal al hacer click en una carta
     container.querySelectorAll('.card-icon[data-card-id]').forEach(el => {
-        el.onclick = function() {
+        el.onclick = function () {
             const cardId = this.getAttribute('data-card-id');
             if (catCardIds && catCardIds.has(cardId)) {
                 // Mostrar carta especial de gatos, pero con el icono y nombre de la carta seleccionada

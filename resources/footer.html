@@ -1,3 +1,38 @@
-<footer style="background:#222;color:#fff;text-align:center;padding:1rem 0;margin-top:2rem;">
-    
+<footer class="bg-gray-900 border-t border-gray-800 mt-16 py-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+
+            <p class="text-xs text-texto-gris mb-4 md:mb-0">
+                &copy; <span id="currentYearFooter"></span> <span class="font-guide">
+                    Da_CaRo
+                </span> Desarrollado con pasión.
+            </p>
+
+            <div class="flex space-x-6 items-center">
+                <a href="https://github.com/da-caro" target="_blank"
+                    class="text-texto-gris hover-acento transition duration-300 text-sm">
+                    GitHub
+                </a>
+                <a href="#" target="_blank" class="text-xs text-texto-gris hover-acento transition duration-300 hidden">
+                    LinkedIn
+                </a>
+                <a href="#" target="_blank" class="text-xs text-texto-gris hover-acento transition duration-300 hidden">
+                    X
+                </a>
+                <a href="#" target="_blank" class="text-xs text-texto-gris hover-acento transition duration-300 hidden">
+                    Instagram
+                </a>
+                <a href="#" target="_blank" class="text-xs text-texto-gris hover-acento transition duration-300 hidden">
+                    TikTok
+                </a>
+                <a href="#" target="_blank" class="text-xs text-texto-gris hover-acento transition duration-300 hidden">
+                    YouTube
+                </a>
+            </div>
+        </div>
+    </div>
 </footer>
+
+<script>
+    document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
+</script>
