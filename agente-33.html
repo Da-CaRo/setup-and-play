@@ -1,197 +1,238 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guías de Juegos de Cartas</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>Agente 33 | Setup & Play</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             background: #f8f8f8;
+            /* Fondo unificado */
         }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 2rem auto;
             background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
         }
+
         h1 {
             text-align: center;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
         }
-        .intro {
-            text-align: center;
-            color: #555;
-            margin-bottom: 2rem;
-        }
-        
-        /* Estilos adicionales para la guía de juego */
-        .game-section h2 {
-            color: #333;
-            border-bottom: 2px solid #eee;
+
+        /* Estilo para los títulos de sección principales */
+        .section-header {
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-bottom: 2px solid #e5e7eb;
             padding-bottom: 0.5rem;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .game-section h3 {
-            color: #555;
+
+        /* Contenedor de reglas con fondo de color */
+        .rule-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .rule-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-list,
+        .effect-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
+        }
+
+        /* Estilo de lista individual (similar a la lista de acciones de EK) */
+        .rule-list li,
+        .effect-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #eee;
+            line-height: 1.4;
+            color: #374151;
+        }
+
+        .rule-list li:last-child,
+        .effect-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para destacar efectos específicos (Agente contactado) */
+        .effect-result {
             margin-top: 1rem;
-        }
-        .game-section ol, .game-section ul {
-            padding-left: 20px;
-        }
-        .game-section li {
-            margin-bottom: 0.5rem;
-        }
-        .example {
-            background-color: #e9f7e9;
-            border-left: 5px solid #4CAF50;
+            background: #f9fafb;
             padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
+            border-radius: 6px;
         }
-        .example strong {
-            color: #388e3c;
+
+        .effect-result strong {
+            display: inline-block;
+            margin-right: 0.5rem;
+            font-weight: 700;
         }
+
+        /* Colores específicos para los resultados */
+        .effect-result-success {
+            border-left: 4px solid #10b981;
+        }
+
+        /* Verde para éxito */
+        .effect-result-rival {
+            border-left: 4px solid #f97316;
+        }
+
+        /* Naranja para rival */
+        .effect-result-civil {
+            border-left: 4px solid #f59e0b;
+        }
+
+        /* Amarillo para civil */
+        .effect-result-assassin {
+            border-left: 4px solid #ef4444;
+        }
+
+        /* Rojo para derrota */
     </style>
 </head>
+
 <body>
     <div id="header-container"></div>
     <div class="container">
-        <h1>Guía de Agente 33</h1>
-        <p class="intro">
-            Reglas para el juego de deducción por palabras, Código Secreto (Codenames), en dos variantes: Clásico (2 Equipos) y Multiequipo (3 Equipos).
+        <p class="intro text-center text-gray-600 mb-6 border-b pb-4">
+            Agente 33 (basado en Codenames) es un juego de palabras por equipos donde los Agentes Secretos intentan
+            contactar a todos sus agentes antes que sus rivales.
         </p>
 
-        <section id="introduccion" class="game-section">
-            <h2>🕵️ Disposición de la Mesa y Roles</h2>
-            <p>
-                <strong>Código Secreto</strong> es un juego de mesa de intriga y espionaje. El objetivo es que un equipo contacte a todos sus agentes secretos antes que los equipos rivales.
-            </p>
-            <ol>
-                <li>Los jugadores se dividen en los equipos participantes (Rojo y Azul para Clásico; Rojo, Azul y Verde para Multiequipo).</li>
-                <li>Cada equipo elige un <strong>Jefe de Espías</strong>. Los Jefes se sientan juntos a un lado de la mesa, y el resto de los jugadores (los <strong>Agentes de Campo</strong>) se sientan enfrente.</li>
-                <li>Se colocan al azar <strong>25 cartas de Nombre en Clave</strong> (palabras) en una cuadrícula de 5x5 en el centro de la mesa.</li>
-                <li>Los Jefes de Espías roban la <strong>Carta Clave</strong> y la colocan en un soporte de manera que solo ellos puedan verla. Esta clave desvela la identidad secreta de las 25 palabras.</li>
-            </ol>
-        </section>
-
-        <section id="preparacion-modos" class="game-section">
-            <h2>👥 Preparación Específica según el Modo de Juego</h2>
-
-            <h3>Modo Clásico: 2 Equipos (Rojo y Azul)</h3>
-            <p>Se juega con los componentes estándar (2 equipos, 4 a 8 jugadores recomendados).</p>
-            <ul>
-                <li>La Carta Clave revela las siguientes identidades:
-                    <ul>
-                        <li><strong>Agentes Rojos / Azules:</strong> Un equipo tiene 9 agentes y el otro 8.</li>
-                        <li><strong>Civiles Inocentes:</strong> 7 palabras.</li>
-                        <li><strong>Asesino:</strong> 1 palabra.</li>
-                    </ul>
-                </li>
-                <li>El equipo que empieza (con 9 agentes) está indicado por el color de las 4 luces en el borde de la Carta Clave.</li>
-                <li>Los turnos se alternan entre Rojo y Azul.</li>
-            </ul>
-
-            <h3>Modo Multiequipo: 3 Equipos (Rojo, Azul y Verde)</h3>
-            <p>Se juega con una Carta Clave especial para tres equipos (3 equipos, 6 a 12 jugadores recomendados).</p>
-            <ul>
-                <li>La Carta Clave revela las siguientes identidades:
-                    <ul>
-                        <li><strong>Agentes Rojos:</strong> 8 palabras.</li>
-                        <li><strong>Agentes Azules:</strong> 8 palabras.</li>
-                        <li><strong>Agentes Verdes:</strong> 8 palabras.</li>
-                        <li><strong>Asesino:</strong> 1 palabra.</li>
-                    </ul>
-                </li>
-                <li><strong>Importante:</strong> En este modo, <strong>NO hay Civiles Inocentes</strong>.</li>
-                <li>Se establece un orden de turno (por ejemplo: Rojo → Azul → Verde).</li>
-            </ul>
-        </section>
-
-<section id="desarrollo" class="game-section">
-            <h2>▶️ Desarrollo del Juego (Común a 2 y 3 Equipos)</h2>
-
-            <ol>
-                <li>El <strong>Jefe de Espías</strong> en turno debe dar una <strong>pista</strong> que consiste únicamente en <strong>una palabra y un número</strong>.
-                    <ul>
-                        <li>La <strong>palabra</strong> es la pista que se relaciona con agentes del equipo.</li>
-                        <li>El <strong>número</strong> indica cuántas palabras en la mesa están relacionadas con esa pista.</li>
-                        <li><strong>Restricción Importante:</strong> La pista no debe ser una palabra derivada, plural, o una forma de conjugación de otra palabra visible en el tablero (por ejemplo, no se puede usar <strong>LÍNEA</strong> si <strong>LÍNEAS</strong> está en el tablero, o <strong>BAILAR</strong> si <strong>BAILANDO</strong> está en el tablero).</li>
-                        <li>El Jefe no puede dar ningún otro indicio, verbal o no verbal.</li>
-                    </ul>
+        <h2 class="section-header"><span role="img" aria-label="icono de herramientas">🛠️</span> 1. Preparación</h2>
+        <div class="rule-card bg-green-50 border border-green-200">
+            <h3 class="text-green-700"><span role="img" aria-label="icono de baraja">🃏</span> Configuración Inicial
+            </h3>
+            <ol class="rule-list">
+                <li>Dividir a los jugadores en dos (o tres) equipos: Rojo y Azul (y Verde).</li>
+                <li>Elegir un Capitán para cada equipo. El resto son Agentes de Campo.</li>
+                <li>El Capitán del Equipo Inicial recibe el <strong>Mosaico de Llaves</strong>, que indica qué palabras
+                    de la cuadrícula (25 palabras) pertenecen a cada equipo.</li>
+                <li>Se colocan las 25 losetas de Código (Losetas de Agente, Civil y Asesino) sobre el Mosaico de Llaves.
                 </li>
             </ol>
-            
-            <h4>💡 Ejemplo de Pista y Riesgo</h4>
-            <div class="example">
-                <p>
-                    El riesgo de una pista es <strong>el peligro de que el Jefe de Espías elija una palabra que también pueda ser relacionada por su equipo con una palabra de otro color.</strong>
-                </p>
+        </div>
 
-                <p>
-                    <strong>Tablero del Jefe Rojo (Visión Secreta):</strong>
-                    <ul>
-                        <li><strong>Agentes Rojos (Meta):</strong> AVIÓN, BARCO, COCHE.</li>
-                        <li><strong>Agente Azul (Rival):</strong> CAMIÓN.</li>
-                    </ul>
-                </p>
+        <h2 class="section-header"><span role="img" aria-label="icono de turno">🔄</span> 2. Turno de Juego</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                <p>
-                    <strong>⚠️ Escenario de RIESGO ALTO (Fallo):</strong>
-                    </p>
-                <p>
-                    El Jefe Rojo dice: <strong>"Vehículo, 3"</strong>. Esta pista es ambigua, ya que <strong>CAMIÓN</strong> (el rival) también es un vehículo.
-                </p>
-                
-                <p>
-                    Si el equipo Rojo toca <strong>CAMIÓN</strong>:
-                    <ul>
-                        <li>🛑 El turno del equipo Rojo <strong>finaliza inmediatamente</strong>.</li>
-                        <li>🛑 La palabra <strong>CAMIÓN</strong> se cubre con una loseta <strong>Azul</strong>, <strong>regalando un punto</strong> al equipo rival.</li>
-                    </ul>
-                </p>
-                
-                <p>
-                    <strong>✅ Escenario de RIESGO BAJO (Pista Precisa):</strong>
-                    </p>
-                <p>
-                    El Jefe Rojo dice: <strong>"Viaje, 3"</strong>. Esta palabra se relaciona muy bien con <strong>AVIÓN</strong>, <strong>BARCO</strong> y <strong>COCHE</strong>, pero menos con <strong>CAMIÓN</strong>. Si el equipo Rojo adivina sus tres agentes, el turno es un éxito.
-                </p>
-                
-                <p>
-                    <strong>Conclusión:</strong> El Jefe de Espías debe elegir la palabra más <strong>precisa</strong> para evitar la <strong>ambigüedad</strong> que pueda llevar a un Agente Rival, Civil o, peor aún, al Asesino.
-                </p>
+            <div class="rule-card bg-yellow-50 border border-yellow-200 md:col-span-1">
+                <h3 class="text-yellow-700"><span role="img" aria-label="icono de pista">🗣️</span> La Pista del Capitán
+                </h3>
+                <ul class="rule-list">
+                    <li>El Capitán del equipo activo da una <strong>Pista de una sola palabra</strong>.</li>
+                    <li>La Pista debe estar relacionada con una o más palabras en la cuadrícula.</li>
+                    <li>Debe decir un número que representa la cantidad de palabras relacionadas.
+                        <p class="mt-2 p-2 bg-yellow-100 rounded text-sm border border-yellow-300">
+                            <strong>Ejemplo:</strong> Si las palabras <strong>Perro</strong>, <strong>Gato</strong> y
+                            <strong>Pajaro</strong> son tuyas, el Capitán podría decir:
+                            <strong>"Animal, 3"</strong>.
+                        </p>
+                        <p class="mt-2 p-2 bg-yellow-100 rounded text-sm border border-yellow-300">
+                            <strong>Advertencia:</strong> Si ademas de esas palabras estuviera <strong>León</strong>, la
+                            pista sera ambigua, ya que
+                            <strong>León</strong> también es un animal, y podría ser mejor elegir otra pista como por
+                            ejemplo <strong>"Doméstico, 3"</strong>.
+                        </p>
+                    </li>
+                    <li>Restricción Importante: La pista no debe ser una palabra derivada, plural, o una forma de
+                        conjugación de otra palabra visible en el tablero (por ejemplo, no se puede usar LÍNEA si LÍNEAS
+                        está en el tablero, o BAILAR si BAILANDO está en el tablero).</li>
+                    <li>El Capitán no puede dar ningún otro indicio, verbal o no verbal.</li>
+                </ul>
             </div>
-            
-            <ol start="2">
-                <li>Los <strong>Agentes de Campo</strong> discuten y <strong>tocan una de las 25 cartas</strong>. El Jefe de Espías cubre la palabra según su identidad:
-                    <ul>
-                        <li>✅ <strong>Agente Propio:</strong> El equipo sigue adivinando. Hasta cubrir el número dado en la pista.</li>
-                        <li>🛑 <strong>Agente Rival (Rojo, Azul, Verde):</strong> La palabra se cubre con la loseta del rival. El turno del equipo finaliza inmediatamente.</li>
-                        <li>🛑 <strong>Civil Inocente (Amarillo, solo Modo Clásico):</strong> La palabra se cubre con una loseta de Civil. El turno del equipo finaliza inmediatamente.</li>
-                        <li>💀 <strong>Asesino:</strong> El juego termina inmediatamente y <strong>el equipo que lo ha tocado pierde la partida</strong>.</li>
-                    </ul>
-                </li>
-                <li>El turno finaliza cuando: el equipo acierta todas las palabras de la pista (y decide no arriesgar), tocan un Agente Rival/Civil, o deciden plantarse. Luego es el turno del siguiente equipo.</li>
-            </ol>
-        </section>
 
-        <section id="fin-partida" class="game-section">
-            <h2>🏆 Fin de la Partida (Común a 2 y 3 Equipos)</h2>
-            
-            <p>La partida puede terminar de dos maneras:</p>
-            <ul>
-                <li><strong>Victoria:</strong> El equipo que logre <strong>cubrir primero a todos sus Agentes Secretos</strong> (8, 9, o 8/8/8) será el <strong>ganador</strong>.</li>
-                <li><strong>Derrota Inmediata:</strong> Si un equipo contacta la carta del <strong>Asesino</strong>, el juego termina y ese equipo pierde inmediatamente.</li>
-            </ul>
-        </section>
+            <div class="rule-card bg-blue-50 border border-blue-200 md:col-span-1">
+                <h3 class="text-blue-700"><span role="img" aria-label="icono de contacto">👆</span> Contacto de Agentes
+                    de Campo</h3>
+                <ul class="rule-list">
+                    <li>Los Agentes de Campo discuten y eligen <strong>una palabra</strong>, tocándola.</li>
+                    <li>Pueden elegir hasta <strong>(Número de la Pista + 1) palabras</strong> en cada turno.
+                        <p class="mt-2 p-2 bg-blue-100 rounded text-sm border border-blue-300">
+                            <strong>Regla de Riesgo:</strong> Si la pista era <strong>"Animal, 3"</strong>, el equipo
+                            puede arriesgarse a
+                            contactar hasta <strong>cuatro (4)</strong> palabras, usando esa cuarta elección para
+                            limpiar un error anterior o buscar una palabra de un turno previo.
+                        </p>
+                    </li>
+                    <li>El turno finaliza cuando: el equipo acierta todas las palabras de la pista (y decide no
+                        arriesgar), tocan un Agente Rival/Civil, o deciden plantarse.</li>
+                </ul>
+            </div>
+
+            <div class="rule-card bg-gray-50 border border-gray-200 md:col-span-2">
+                <h3 class="text-gray-700"><span role="img" aria-label="icono de efecto">✨</span> Resultados de Contacto
+                    (Efectos)</h3>
+
+                <div class="effect-list">
+                    <div class="effect-result effect-result-success">
+                        <strong>✅ Agente Amigo:</strong> La palabra se cubre con una loseta de tu color. El equipo puede
+                        intentar <strong>otro contacto.</strong>
+                    </div>
+                    <div class="effect-result effect-result-rival">
+                        <strong>❌ Agente Rival:</strong> La palabra se cubre con la loseta del rival. El turno del
+                        equipo finaliza <strong>inmediatamente.</strong>
+                    </div>
+                    <div class="effect-result effect-result-civil">
+                        <strong>🛑 Civil Inocente:</strong> La palabra se cubre con una loseta de Civil. El turno del
+                        equipo finaliza <strong>inmediatamente.</strong>
+                    </div>
+                    <div class="effect-result effect-result-assassin">
+                        <strong>💀 Asesino:</strong> El juego termina inmediatamente y <strong>el equipo que lo ha
+                            tocado pierde la partida.</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h2 class="section-header"><span role="img" aria-label="icono de trofeo">🏆</span> 3. Fin de la Partida</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="rule-card bg-indigo-50 border border-indigo-200">
+                <h3 class="text-indigo-700">Victoria</h3>
+                <p>El equipo que logre <strong>cubrir primero a todos sus Agentes Secretos</strong> será
+                    el <strong>ganador</strong>.</p>
+            </div>
+            <div class="rule-card bg-red-50 border border-red-200">
+                <h3 class="text-red-700">Derrota Inmediata</h3>
+                <p>Si un equipo contacta la carta del <strong>Asesino</strong>, el juego termina inmediatamente y ese
+                    equipo pierde.</p>
+            </div>
+        </div>
 
     </div>
     <div id="footer-container"></div>
 </body>
 <script src="js/include.js"></script>
+
 </html>

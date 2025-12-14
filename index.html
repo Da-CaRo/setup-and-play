@@ -1,44 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guías de Juegos de Cartas</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f8f8f8;
-        }
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            padding: 2rem;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-        .intro {
-            text-align: center;
-            color: #555;
-        }
-    </style>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>Setup & Play</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
     <div id="header-container"></div>
-    <div class="container">
-        <h1>Guías de Juegos de Cartas</h1>
-        <p class="intro">
-            Bienvenido a la web de guías de juegos de cartas. Aquí encontrarás reglas, cartas y estrategias para tus juegos favoritos.<br>
-            ¡Selecciona un juego en el menú para empezar!
-        </p>
+
+
+    <div class="py-8 md:py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                Bienvenido a <span class="font-guide text-acento">
+                    Setup & Play
+                </span>
+            </h1>
+
+            <p class="text-xl text-texto-gris mb-12 max-w-2xl mx-auto">
+                Aquí encontrarás reglas, cartas y estrategias para tus juegos favoritos.<br>
+                ¡Selecciona un juego en el menú para empezar!
+            </p>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <a href="agente-33.html" class="block">
+                    <div
+                        class="bg-tarjeta p-6 rounded-lg shadow-xl border border-gray-700 border-acento hover-acento transition duration-300 h-full flex flex-col justify-between">
+                        <div>
+                            <span class="text-acento text-4xl mb-3 block">🕵️</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-100 font-guide">Agente 33</h3>
+                            <p class="text-texto-gris text-base"></p>
+                        </div>
+                        <span class="mt-5 inline-block text-sm font-medium text-acento hover:underline">Guia →</span>
+                    </div>
+                </a>
+
+                <a href="exploding-kittens.html" class="block">
+                    <div
+                        class="bg-tarjeta p-6 rounded-lg shadow-xl border border-gray-700 border-acento hover-acento transition duration-300 h-full flex flex-col justify-between">
+                        <div>
+                            <span class="text-acento text-4xl mb-3 block">🐈‍⬛</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-100 font-guide">Exploding Kittens</h3>
+                            <p class="text-texto-gris text-base"></p>
+                        </div>
+                        <span class="mt-5 inline-block text-sm font-medium text-acento hover:underline">Guia →</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
     </div>
+
     <div id="footer-container"></div>
 </body>
 <script src="js/include.js"></script>
+
 </html>
