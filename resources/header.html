@@ -1,3 +1,11 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
 <style>
     /* 1. DEFINICIÓN DE VARIABLES DE COLOR */
     :root {
@@ -8,9 +16,9 @@
         --color-tarjeta: #1F2937;
         /* Color de Contenedor: Gris Oscuro */
 
-        --color-texto-claro: #1F2937;
-        --color-texto-gris: #9CA3AF;
-        --color-borde: #374151;
+        --color-texto: #1F2937;
+        --color-texto-tarjeta: #9CA3AF;
+        --color-borde-tarjeta: #374151;
     }
 
     /* 2. APLICACIÓN DE VARIABLES A LOS ESTILOS GLOBALMENTE */
@@ -18,13 +26,17 @@
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         background-color: var(--color-fondo);
         /* Usando variable */
-        color: var(--color-texto-claro);
+        color: var(--color-texto);
         /* Usando variable */
     }
 
     /* Para usar una fuente del agente en títulos específicos */
-    .font-agente {
-        font-family: 'Orbitron', sans-serif;
+    .font-code {
+        font-family: 'Space Mono', ui-monospace, SFMono-Regular, monospace;
+    }
+
+    .font-setup-and-play {
+        font-family: 'Bangers', system-ui;
     }
 
     /* Sobrescribir las clases de Tailwind con las variables (para el color de acento) */
@@ -33,11 +45,7 @@
     }
 
     .hover-acento:hover {
-        color: var(--color-acento) !important;
-    }
-
-    .border-acento:hover {
-        border-color: var(--color-acento) !important;
+        color: var(--color-acento);
     }
 
     .bg-tarjeta {
@@ -45,12 +53,16 @@
     }
 
     .border-tarjeta {
-        border-color: var(--color-borde);
+        border-color: var(--color-borde-tarjeta);
+    }
+
+    .border-tarjeta:hover {
+        border-color: var(--color-acento);
     }
 
     /* Ajuste específico para el texto gris de las tarjetas */
-    .text-texto-gris {
-        color: var(--color-texto-gris);
+    .text-tarjeta {
+        color: var(--color-texto-tarjeta);
     }
 
     nav a {
@@ -65,6 +77,15 @@
     nav a:hover {
         color: var(--color-acento);
     }
+
+    .exploding-kittens {
+        color: #fff;
+    }
+
+    .agente-33 {
+        color: #eab308;
+        font-family: 'Orbitron', sans-serif;
+    }
 </style>
 
 <header class="bg-gray-900 shadow-md p-4 border-b border-gray-800 sticky top-0 z-10">
@@ -74,16 +95,15 @@
                 <img src="img/favicon.png" alt="Icono Setup & Play" class="h-8 w-8">
             </a>
             <a href="index.html">
-                <h1 class="text-3xl font-extrabold text-acento">
+                <h1 class="text-3xl font-bold text-acento font-setup-and-play">
                     Setup & Play
                 </h1>
             </a>
 
         </div>
-        <nav class="hidden md:flex space-x-6">
+        <nav class="hidden md:flex space-x-3">
             <a href="agente-33.html" class="hover-acento transition duration-300">Agente 33</a>
             <a href="exploding-kittens.html" class="hover-acento transition duration-300">Exploding Kittens</a>
-            <a href="#" class="hover-acento transition duration-300 hidden">Proyectos</a>
         </nav>
     </div>
 </header>
