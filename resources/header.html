@@ -5,6 +5,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/Da-CaRo/site-configs@main/control.js" data-web="setup-and-play"></script>
 
 <style>
@@ -87,6 +89,73 @@
         color: #eab308;
         font-family: 'Orbitron', sans-serif;
     }
+
+    .el-impostor {
+        color: #FF3B30;
+        font-family: 'Metal Mania', system-ui;
+    }
+
+    .tres-pistas {
+        color: #1ec8c5;
+        font-family: 'Luckiest Guy', cursive;
+    }
+
+    .prisma {
+        font-family: 'Bungee Shade', sans-serif;
+        text-transform: uppercase;
+        /* Aplicación del Gradiente */
+        background: linear-gradient(45deg,
+                #2dffeb 20%,
+                #8f54b3 40%,
+                #fcba49 60%,
+                #2c75e3 90%);
+
+        /* Truco para que el fondo solo pinte el texto */
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        /* Hacemos transparente el color original de la fuente para ver el gradiente */
+        color: transparent;
+
+        filter: drop-shadow(0 0 8px rgba(30, 200, 197, 0.3));
+        line-height: 1.2;
+        display: inline-block;
+        /* Asegura que el gradiente se calcule bien */
+    }
+
+    .loot-and-run {
+        font-family: 'Ruslan Display', cursive;
+        /* Degradado de esmeralda con facetas */
+        background: linear-gradient(135deg,
+                #a7f3d0 0%,
+                /* Reflejo de luz en el borde */
+                #10b981 25%,
+                /* Verde esmeralda base */
+                #065f46 50%,
+                /* Sombra interna profunda */
+                #10b981 75%,
+                /* Reflejo secundario */
+                #047857 100%);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+
+        /* El truco: Múltiples sombras para dar volumen de piedra */
+        filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+        text-shadow:
+            0px 2px 4px rgba(0, 0, 0, 0.5),
+            0px 0px 20px rgba(16, 185, 129, 0.4);
+        background-size: 200% auto;
+        animation: shine 5s linear infinite;
+    }
+
+    /*Function for the text of Loot & Run to shine*/
+    @keyframes shine {
+        to {
+            background-position: 200% center;
+        }
+    }
 </style>
 
 <header class="bg-gray-900 shadow-md p-4 border-b border-gray-800 sticky top-0 z-10">
@@ -104,6 +173,11 @@
         </div>
         <nav class="hidden md:flex space-x-3">
             <a href="agente-33.html" class="hover-acento transition duration-300">Agente 33</a>
+            <a href="el-impostor.html" class="hover-acento transition duration-300">El Impostor</a>
+            <a href="tres-pistas.html" class="hover-acento transition duration-300">Tres Pistas</a>
+            <a href="prisma.html" class="hover-acento transition duration-300">Prisma</a>
+            <a href="loot-and-run.html" class="hover-acento transition duration-300">Loot & Run</a>
+
             <a href="exploding-kittens.html" class="hover-acento transition duration-300">Exploding Kittens</a>
         </nav>
     </div>
