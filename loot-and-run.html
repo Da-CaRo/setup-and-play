@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>Loot & Run | Setup & Play</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f8f8f8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+        }
+
+        .setup-header {
+            font-family: 'Bangers', system-ui;
+            text-align: center;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            color: #0d9488;
+            /* Color turquesa/aventura */
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header {
+            font-family: 'Bangers', system-ui;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            color: #0f766e;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .rule-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #eee;
+            line-height: 1.4;
+            color: #374151;
+        }
+
+        .danger-card {
+            border-left: 4px solid #ef4444;
+            background-color: #fef2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+    <div class="container">
+        <h1 class="setup-header">Loot & Run</h1>
+
+        <p class="intro text-center text-gray-600 mb-6 border-b pb-4">
+            ¡Adéntrate en la cueva de Tacora! Recoge tantas gemas como puedas, pero ten cuidado: si aparece una trampa
+            repetida, huirás con las manos vacías.
+        </p>
+
+        <h2 class="section-header">🛠️ 1. Preparación</h2>
+        <div class="rule-card bg-emerald-50 border border-emerald-200">
+            <h3 class="text-emerald-700">💎 Equipo de Expedición</h3>
+            <ul class="rule-list">
+                <li>Cada jugador recibe un <strong>cofre</strong> para guardar sus tesoros en secreto.</li>
+                <li>Se colocan las 5 cartas de entrada a la cueva numeradas del 1 al 5 en el tablero.</li>
+                <li>Se barajan las cartas de expedición (tesoros y peligros).</li>
+                <li>La partida dura exactamente <strong>5 expediciones</strong> (rondas).</li>
+            </ul>
+        </div>
+
+        <h2 class="section-header">🔄 2. Cómo Jugar</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="rule-card bg-blue-50 border border-blue-200">
+                <h3 class="text-blue-700">🚶 Paso 1: Decidir</h3>
+                <p class="text-sm">Al inicio de cada turno, cada jugador elige en secreto si quiere:</p>
+                <ul class="rule-list text-xs">
+                    <li><strong>Continuar:</strong> Poner su peón en la mano cerrada (se queda en la cueva).</li>
+                    <li><strong>Salir:</strong> Poner su peón en la mano abierta (vuelve al campamento).</li>
+                </ul>
+                <p class="mt-3 text-xs italic text-gray-500">¡Todos revelan su elección al mismo tiempo!</p>
+            </div>
+
+            <div class="rule-card bg-amber-50 border border-amber-200">
+                <h3 class="text-amber-700">🗺️ Paso 2: Revelar</h3>
+                <p class="text-sm">Se revela una carta del mazo:</p>
+                <ul class="rule-list text-xs">
+                    <li><strong>Tesoro:</strong> Se reparte el número de gemas equitativamente entre los que se
+                        quedaron. El sobrante se deja sobre la carta.</li>
+                    <li><strong>Reliquia:</strong> No vale nada si te quedas, pero si sales solo, ¡te la llevas!</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-header">🐍 3. Los Peligros</h2>
+        <div class="rule-card danger-card">
+            <h3 class="text-red-700">¡Cuidado con las Trampas!</h3>
+            <p class="text-sm mb-3">Existen 5 tipos de peligros (Serpientes, Arañas, Piedras, Gas y Lava).</p>
+            <ul class="rule-list">
+                <li>Si aparece la <strong>primera carta</strong> de un peligro: No pasa nada, la expedición continúa.
+                </li>
+                <li>Si aparece la <strong>segunda carta</strong> del mismo peligro: ¡La expedición termina
+                    inmediatamente! Todos los que seguían dentro huyen y pierden las gemas recogidos en esa ronda.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-header">⛺ 4. Retirada</h2>
+        <div class="rule-card bg-gray-50 border border-gray-200">
+            <h3 class="text-gray-700">Asegurando el botín</h3>
+            <p class="text-sm">Si decides salir voluntariamente:</p>
+            <ul class="rule-list">
+                <li>Recoges todas las gemas sobrantes que hayan quedado en el camino de vuelta.</li>
+                <li>Guardas tus gemas en el <strong>cofre</strong>. Una vez ahí, ¡nadie puede quitártelos!</li>
+                <li>Si varios jugadores salen a la vez, se reparten las gemas del camino.</li>
+            </ul>
+        </div>
+
+        <div class="rule-card bg-yellow-100 border border-yellow-300 mt-6 text-center">
+            <h3 class="text-yellow-800 justify-center">🏆 Victoria</h3>
+            <p>Al final de la quinta expedición, el jugador con más gemas dentro de su cofre es el ganador.</p>
+        </div>
+
+    </div>
+    <div id="footer-container"></div>
+</body>
+<script src="js/include.js"></script>
+
+</html>

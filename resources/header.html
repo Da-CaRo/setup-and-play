@@ -1,3 +1,14 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/Da-CaRo/site-configs@main/control.js" data-web="setup-and-play"></script>
+
 <style>
     /* 1. DEFINICIÓN DE VARIABLES DE COLOR */
     :root {
@@ -8,9 +19,9 @@
         --color-tarjeta: #1F2937;
         /* Color de Contenedor: Gris Oscuro */
 
-        --color-texto-claro: #1F2937;
-        --color-texto-gris: #9CA3AF;
-        --color-borde: #374151;
+        --color-texto: #1F2937;
+        --color-texto-tarjeta: #9CA3AF;
+        --color-borde-tarjeta: #374151;
     }
 
     /* 2. APLICACIÓN DE VARIABLES A LOS ESTILOS GLOBALMENTE */
@@ -18,13 +29,17 @@
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         background-color: var(--color-fondo);
         /* Usando variable */
-        color: var(--color-texto-claro);
+        color: var(--color-texto);
         /* Usando variable */
     }
 
     /* Para usar una fuente del agente en títulos específicos */
-    .font-agente {
-        font-family: 'Orbitron', sans-serif;
+    .font-code {
+        font-family: 'Space Mono', ui-monospace, SFMono-Regular, monospace;
+    }
+
+    .font-setup-and-play {
+        font-family: 'Bangers', system-ui;
     }
 
     /* Sobrescribir las clases de Tailwind con las variables (para el color de acento) */
@@ -33,11 +48,7 @@
     }
 
     .hover-acento:hover {
-        color: var(--color-acento) !important;
-    }
-
-    .border-acento:hover {
-        border-color: var(--color-acento) !important;
+        color: var(--color-acento);
     }
 
     .bg-tarjeta {
@@ -45,12 +56,16 @@
     }
 
     .border-tarjeta {
-        border-color: var(--color-borde);
+        border-color: var(--color-borde-tarjeta);
+    }
+
+    .border-tarjeta:hover {
+        border-color: var(--color-acento);
     }
 
     /* Ajuste específico para el texto gris de las tarjetas */
-    .text-texto-gris {
-        color: var(--color-texto-gris);
+    .text-tarjeta {
+        color: var(--color-texto-tarjeta);
     }
 
     nav a {
@@ -65,6 +80,82 @@
     nav a:hover {
         color: var(--color-acento);
     }
+
+    .exploding-kittens {
+        color: #fff;
+    }
+
+    .agente-33 {
+        color: #eab308;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .el-impostor {
+        color: #FF3B30;
+        font-family: 'Metal Mania', system-ui;
+    }
+
+    .tres-pistas {
+        color: #1ec8c5;
+        font-family: 'Luckiest Guy', cursive;
+    }
+
+    .prisma {
+        font-family: 'Bungee Shade', sans-serif;
+        text-transform: uppercase;
+        /* Aplicación del Gradiente */
+        background: linear-gradient(45deg,
+                #2dffeb 20%,
+                #8f54b3 40%,
+                #fcba49 60%,
+                #2c75e3 90%);
+
+        /* Truco para que el fondo solo pinte el texto */
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        /* Hacemos transparente el color original de la fuente para ver el gradiente */
+        color: transparent;
+
+        filter: drop-shadow(0 0 8px rgba(30, 200, 197, 0.3));
+        line-height: 1.2;
+        display: inline-block;
+        /* Asegura que el gradiente se calcule bien */
+    }
+
+    .loot-and-run {
+        font-family: 'Ruslan Display', cursive;
+        /* Degradado de esmeralda con facetas */
+        background: linear-gradient(135deg,
+                #a7f3d0 0%,
+                /* Reflejo de luz en el borde */
+                #10b981 25%,
+                /* Verde esmeralda base */
+                #065f46 50%,
+                /* Sombra interna profunda */
+                #10b981 75%,
+                /* Reflejo secundario */
+                #047857 100%);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+
+        /* El truco: Múltiples sombras para dar volumen de piedra */
+        filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+        text-shadow:
+            0px 2px 4px rgba(0, 0, 0, 0.5),
+            0px 0px 20px rgba(16, 185, 129, 0.4);
+        background-size: 200% auto;
+        animation: shine 5s linear infinite;
+    }
+
+    /*Function for the text of Loot & Run to shine*/
+    @keyframes shine {
+        to {
+            background-position: 200% center;
+        }
+    }
 </style>
 
 <header class="bg-gray-900 shadow-md p-4 border-b border-gray-800 sticky top-0 z-10">
@@ -74,16 +165,20 @@
                 <img src="img/favicon.png" alt="Icono Setup & Play" class="h-8 w-8">
             </a>
             <a href="index.html">
-                <h1 class="text-3xl font-extrabold text-acento">
+                <h1 class="text-3xl font-bold text-acento font-setup-and-play">
                     Setup & Play
                 </h1>
             </a>
 
         </div>
-        <nav class="hidden md:flex space-x-6">
+        <nav class="hidden md:flex space-x-3">
             <a href="agente-33.html" class="hover-acento transition duration-300">Agente 33</a>
+            <a href="el-impostor.html" class="hover-acento transition duration-300">El Impostor</a>
+            <a href="tres-pistas.html" class="hover-acento transition duration-300">Tres Pistas</a>
+            <a href="prisma.html" class="hover-acento transition duration-300">Prisma</a>
+            <a href="loot-and-run.html" class="hover-acento transition duration-300">Loot & Run</a>
+
             <a href="exploding-kittens.html" class="hover-acento transition duration-300">Exploding Kittens</a>
-            <a href="#" class="hover-acento transition duration-300 hidden">Proyectos</a>
         </nav>
     </div>
 </header>

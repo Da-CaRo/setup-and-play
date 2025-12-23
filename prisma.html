@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>Prisma | Setup & Play</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f8f8f8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+        }
+
+        .setup-header {
+            font-family: 'Bangers', system-ui;
+            text-align: center;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            /* Degradado de colores tipo arcoíris para el título */
+            background: linear-gradient(to right, #ef4444, #f59e0b, #10b981, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header {
+            font-family: 'Bangers', system-ui;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            color: #4b5563;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .rule-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #eee;
+            line-height: 1.4;
+            color: #374151;
+        }
+
+        .point-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+    <div class="container">
+        <h1 class="setup-header">Prisma</h1>
+        
+        <p class="intro text-center text-gray-600 mb-6 border-b pb-4">
+            ¿Cómo de bien puedes describir un color? Un vibrante juego de comunicación donde las palabras se convierten en tonos sobre un tablero de 480 colores.
+        </p>
+
+        <h2 class="section-header">🛠️ 1. Preparación</h2>
+        <div class="rule-card bg-slate-50 border border-slate-200">
+            <h3 class="text-slate-700">🎨 Configuración</h3>
+            <ul class="rule-list">
+                <li>Colocad el tablero en el centro. Cada jugador elige un color y recibe <strong>3 peones</strong> (uno para el marcador y dos para apostar).</li>
+                <li>Barajad las cartas de colores. El jugador con la ropa más colorida empieza como <strong>Dador de Pistas</strong>.</li>
+                <li>El Dador de Pistas roba una carta y elige uno de los 4 colores de la misma en secreto.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-header">🔄 2. Cómo Jugar</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="rule-card bg-pink-50 border border-pink-200">
+                <h3 class="text-pink-700">📢 Primera Pista</h3>
+                <p class="text-sm mb-3">El dador da una pista de <strong>UNA SOLA PALABRA</strong> (ej: "Manzana").</p>
+                <p class="text-xs text-gray-500 italic">No se permiten números, coordenadas ni objetos que estén presentes en la sala.</p>
+                <div class="mt-4 p-2 bg-white rounded border border-pink-100 text-xs">
+                    Todos los jugadores colocan su primer peón en el tablero.
+                </div>
+            </div>
+
+            <div class="rule-card bg-cyan-50 border border-cyan-200">
+                <h3 class="text-cyan-700">📢 Segunda Pista</h3>
+                <p class="text-sm mb-3">El dador ofrece una pista de <strong>DOS PALABRAS</strong> (ej: "Puesta sol").</p>
+                <p class="text-xs text-gray-500 italic">Debe ser una pista distinta a la anterior para ayudar a refinar la búsqueda.</p>
+                <div class="mt-4 p-2 bg-white rounded border border-cyan-100 text-xs">
+                    Los jugadores colocan su segundo peón.
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-header">🎯 3. Puntuación</h2>
+        <div class="rule-card bg-green-50 border border-green-200">
+            <p class="mb-4 font-bold text-green-800">Se coloca el marco de puntuación (3x3) sobre el color correcto:</p>
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <div class="point-box bg-green-600">3</div>
+                    <p class="text-sm"><strong>Acierto exacto:</strong> El peón está en el color elegido.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="point-box bg-green-500">2</div>
+                    <p class="text-sm"><strong>Cerca:</strong> El peón está dentro del cuadro de 3x3 pero no en el centro.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="point-box bg-green-400">1</div>
+                    <p class="text-sm"><strong>Perímetro:</strong> El peón está justo fuera del marco de 3x3 (adyacente).</p>
+                </div>
+            </div>
+            <div class="mt-6 p-4 bg-white rounded-lg border border-green-300 text-sm">
+                <strong>Puntos para el Dador:</strong> Gana 1 punto por cada peón que esté dentro del marco de 3x3 (máximo 9 puntos).
+            </div>
+        </div>
+
+        <h2 class="section-header">🏆 Fin de la Partida</h2>
+        <div class="rule-card bg-indigo-50 border border-indigo-200">
+            <p>La partida termina cuando todos los jugadores han sido dadores de pistas una o dos veces (según el número de jugadores). ¡El jugador con más puntos en el marcador gana!</p>
+        </div>
+
+    </div>
+    <div id="footer-container"></div>
+</body>
+<script src="js/include.js"></script>
+
+</html>
