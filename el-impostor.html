@@ -24,14 +24,14 @@
             padding: 2.5rem;
         }
 
-        /* Título principal con Bangers */
         .setup-header {
             font-family: 'Bangers', system-ui;
             text-align: center;
             font-size: 3.5rem;
             letter-spacing: 2px;
             color: #ef4444;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+            /* Rojo ajustado según tu preferencia */
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
             margin-bottom: 1.5rem;
         }
 
@@ -96,70 +96,272 @@
     <div id="header-container"></div>
     <div class="container">
         <h1 class="setup-header">EL IMPOSTOR</h1>
-        
-        <p class="intro text-center text-gray-600 mb-6 border-b pb-4">
-            Un juego de deducción social donde todos conocen una palabra secreta, excepto uno. 
-            ¿Podrás desenmascarar al impostor antes de que descubra el secreto?
+
+        <p class="intro text-center text-gray-600 mb-6 border-b pb-4 italic">
+            "Un juego de deducción social donde el silencio es oro y una palabra puede ser tu condena."
         </p>
 
-        <h2 class="section-header">🛠️ 1. Preparación</h2>
+        <h2 class="section-header">📱 1. El Reparto (Fase Digital)</h2>
         <div class="rule-card bg-purple-50 border border-purple-200">
-            <h3 class="text-purple-700">🕵️ Asignación de Roles</h3>
-            <ol class="rule-list">
-                <li>Se elige una palabra secreta (ej: "Manzana").</li>
-                <li>Todos los jugadores ven la palabra, <strong>excepto uno</strong>, que recibe el rol de <strong>Impostor</strong>.</li>
-                <li>Nadie sabe quién es el Impostor ni quiénes son los jugadores leales.</li>
-            </ol>
+            <h3 class="text-purple-700">🔐 Preparación del Dispositivo</h3>
+            <ul class="rule-list">
+                <li>Los jugadores se van pasando el móvil <strong>mano a mano</strong> en círculo.</li>
+                <li>Cuando recibas el móvil, selecciona tu nombre y <strong>memoriza su palabra y rol</strong> antes de
+                    pasar el móvil, no olvides <strong>cerrar la ficha.</strong></li>
+            </ul>
         </div>
 
         <h2 class="section-header">🔄 2. Cómo Jugar</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             <div class="rule-card bg-blue-50 border border-blue-200">
-                <h3 class="text-blue-700">🗣️ La Ronda de Palabras</h3>
+                <h3 class="text-blue-700">🗣️ Ronda de Pistas</h3>
                 <ul class="rule-list">
-                    <li>Cada jugador debe decir <strong>una sola palabra</strong> relacionada con la palabra secreta.</li>
-                    <li><strong>Jugadores Leales:</strong> Deben dar una pista lo suficientemente clara para que los demás confíen en ellos, pero no tan obvia como para que el Impostor adivine el secreto.</li>
-                    <li><strong>El Impostor:</strong> Debe escuchar con atención e intentar decir algo que encaje para no ser descubierto.</li>
+                    <li>Se elige un jugador al azar. El turno sigue el sentido de las agujas del reloj.</li>
+                    <li>Dí una <strong>sola palabra</strong> relacionada con el tema secreto.</li>
+                    <li><strong>Tripulante:</strong> Ni muy obvio (ayudas al Impostor), ni muy raro (sospecharán de ti).
+                    </li>
+                    <li><strong>Impostor:</strong> Escucha y mimetízate con las pistas de los demás.</li>
                 </ul>
             </div>
 
             <div class="rule-card bg-yellow-50 border border-yellow-200">
-                <h3 class="text-yellow-700">⚖️ La Votación</h3>
+                <h3 class="text-yellow-700">⚖️ Debate y Votación</h3>
                 <ul class="rule-list">
-                    <li>Tras la ronda, los jugadores discuten quién creen que ha dado la pista más sospechosa.</li>
-                    <li>A la de tres, todos señalan a su sospechoso.</li>
-                    <li>El jugador con más votos debe revelar su identidad.</li>
+                    <li><strong>Debate:</strong> Durante esta fase, es imprescindible que si se dan explicaciones, no se
+                        ayude al impostor a acertar la palabra.</li>
+                    <li><strong>Votación:</strong> En cada ronda se echará a un jugador, el mas sospechoso.</li>
+                    <li><strong>Muerte Súbita:</strong> En caso de empate, se vuelve a votar solo entre ellos.</li>
                 </ul>
+            </div>
+
+            <div class="rule-card bg-orange-50 border border-orange-200 col-span-2">
+                <h3 class="text-orange-700">¿Que pasa si el impostor dice la palabra exacta?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <div class="rule-card bg-orange-50 border border-orange-200">
+                        <h3 class="text-orange-700">A La Victoria del "Genio"</h3>
+                        <p class="text-sm text-gray-600 mb-4">Si el Impostor dice la palabra exacta como su pista,
+                            significa
+                            que <strong>los Tripulantes han sido demasiado obvios</strong> y el Impostor ha descifrado
+                            el
+                            código.</p>
+                        <div class="highlight-box bg-white border border-orange-200">
+                            <ul class="rule-list">
+                                <li>Si el Impostor dice la palabra secreta, la partida se detiene y el <strong>Impostor
+                                        gana
+                                        automáticamente.</strong></li>
+                                <li><strong>Por qué:</strong> El objetivo de los Tripulantes es dar pistas que el
+                                    Impostor no
+                                    entienda. Si el Impostor se siente tan seguro como para decir la palabra tal cual,
+                                    es
+                                    que ha ganado la batalla mental.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rule-card bg-orange-50 border border-orange-200">
+                        <h3 class="text-orange-700">B El "Suicidio" del Impostor</h3>
+                        <p class="text-sm text-gray-600 mb-4">En esta versión, decir la palabra está prohibido para
+                            todos</strong>, incluido el Impostor.</p>
+                        <div class="highlight-box bg-white border border-orange-200">
+                            <ul class="rule-list">
+                                <li><strong>Regla:</strong> Si alguien dice la palabra secreta (sea quien sea), queda
+                                    <strong>expulsado o pierde la partida.</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <h2 class="section-header">🏆 3. Fin de la Partida</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="rule-card bg-green-50 border border-green-200">
-                <h3 class="text-green-700">Ganan los Leales si...</h3>
+                <h3 class="text-green-700">Ganan los Tripulantes si...</h3>
                 <ul class="rule-list">
-                    <li>Logran identificar al Impostor en la votación.</li>
-                    <li><strong>Y ADEMÁS:</strong> El Impostor no logra adivinar la palabra secreta tras ser descubierto.</li>
+                    <li>Logran expulsar a <strong>todos los impostores</strong> durante las diferentes rondas.</li>
+                    <li><strong>Roles Especiales:</strong> El <strong>Vidente</strong> gana si el Impostor que conocía
+                        es expulsado sin haberle descubierto.</li>
                 </ul>
             </div>
             <div class="rule-card bg-red-50 border border-red-200">
                 <h3 class="text-red-700">Gana el Impostor si...</h3>
                 <ul class="rule-list">
-                    <li>Los jugadores votan a una persona inocente.</li>
-                    <li>O si, tras ser descubierto, <strong>adivina correctamente</strong> la palabra secreta de la ronda.</li>
+                    <li>Llega al final de la partida sin ser expulsado.</li>
+                    <li><strong>Último Aliento:</strong> Si al ser descubierto, adivina la palabra secreta o identifica
+                        al Vidente.</li>
+                    <li><strong>Cómplice:</strong> Gana si el Impostor que conoce sobrevive.</li>
                 </ul>
             </div>
         </div>
 
         <div class="rule-card bg-gray-50 border border-gray-200 mt-8">
-            <h3 class="text-gray-700">💡 Ejemplo de Juego</h3>
+            <h3 class="text-gray-700">💡 Reglas de Oro</h3>
+            <ul class="rule-list">
+                <li>🚫 <strong>Prohibido repetir:</strong> No puedes usar una pista que ya haya dicho otro jugador.</li>
+                <li>🚫 <strong>Palabras prohibidas:</strong> No digas la palabra secreta ni partes de ella (ej: si es
+                    "Luz de gas", no digas "Gas").</li>
+                <li>💡 Antes de empezar a jugar decidir si quereis jugar con <strong>La Victoria del "Genio"</strong> o
+                    <strong>El "Suicidio" del Impostor</strong>
+                </li>
+            </ul>
+        </div>
+        <div class="rule-card bg-gray-50 border border-gray-200 mt-8">
+            <h3 class="text-gray-700">💡 Consejos</h3>
             <div class="highlight-box bg-white border border-gray-200 italic">
                 <strong>Palabra Secreta:</strong> Italia <br><br>
                 - Jugador 1: "Pasta" (Un poco obvio).<br>
                 - Jugador 2: "Europa" (Muy genérico).<br>
                 - Impostor: "Vino" (Tratando de encajar).<br>
                 - Jugador 3: "Bota" (Buena pista, difícil para el Impostor).
+            </div>
+        </div>
+
+        <h2 class="section-header">🛠️ 4. Variantes Avanzadas</h2>
+
+        <p class="text-gray-600 mb-4 text-sm italic">Usa esta tabla para equilibrar el juego según el número de personas
+            en la mesa:</p>
+
+        <div class="rule-card overflow-hidden border border-gray-200 p-0 mb-8">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800 text-white text-xs uppercase tracking-wider font-bold">
+                            <th class="p-4 text-center">Jugadores</th>
+                            <th class="p-4">Impostores/Cómplices</th>
+                            <th class="p-4">Roles Especiales Sugeridos</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-sm">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">3-4</td>
+                            <td class="p-4 text-gray-700">1 Impostor</td>
+                            <td class="p-4 text-gray-600 italic">Ninguno o Despistado.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">5-6</td>
+                            <td class="p-4 text-gray-700">1 Impostor</td>
+                            <td class="p-4 text-gray-600 italic">Poeta + Glitch.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">7-8</td>
+                            <td class="p-4 text-gray-700">1 Imp. + 1 Cómplice</td>
+                            <td class="p-4 text-gray-600 italic">Vidente + Paranoico + Gemelo (Solitario).</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">9-10</td>
+                            <td class="p-4 text-gray-700">2 Imp. + 1 Cómplice</td>
+                            <td class="p-4 text-gray-600 italic">Vidente + Gemelos (Vínculo) + Detective + Poeta.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">11+</td>
+                            <td class="p-4 text-gray-700">2 Imp. + 1 Cómplice</td>
+                            <td class="p-4 text-gray-600 italic">Todos los roles activos.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="rule-card overflow-hidden border border-gray-200 p-0 mb-8">
+            <h3 class="p-4 bg-orange-50 text-orange-700 border-b border-gray-200 m-0">👥 Guía Completa de Roles</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800 text-white text-xs uppercase tracking-wider font-bold">
+                            <th class="p-4 text-center">Icono</th>
+                            <th class="p-4">Rol</th>
+                            <th class="p-4 text-center">¿Sabe la Palabra?</th>
+                            <th class="p-4">Misión y Objetivo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-sm">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center text-xl">👤</td>
+                            <td class="p-4 font-bold text-slate-400">Civil</td>
+                            <td class="p-4 text-center font-bold text-green-600">SÍ</td>
+                            <td class="p-4 text-gray-700">Dar una pista clara para los inocentes, pero sin que el
+                                Impostor la adivine.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center text-xl">💀</td>
+                            <td class="p-4 font-bold text-red-500">Impostor</td>
+                            <td class="p-4 text-center font-bold text-red-600">NO</td>
+                            <td class="p-4 text-gray-700">Escuchar las pistas de los demás, fingir que sabes de qué
+                                hablan y sobrevivir.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center text-xl">🕵️</td>
+                            <td class="p-4 font-bold text-slate-600">Detective</td>
+                            <td class="p-4 text-center font-bold text-blue-400">SÍ</td>
+                            <td class="p-4 text-gray-700">Analizar el listado de roles activos y usar el conteo para
+                                pillar mentiras.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center text-xl">🎭</td>
+                            <td class="p-4 font-bold text-rose-400">Cómplice</td>
+                            <td class="p-4 text-center font-bold text-green-600">SÍ</td>
+                            <td class="p-4 text-gray-700">Tu objetivo es que el Impostor gane. Debes desviar las
+                                sospechas de los demás.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center text-xl">🧪</td>
+                            <td class="p-4 font-bold text-green-600">Paranoico</td>
+                            <td class="p-4 text-center font-bold text-yellow-500">SÍ</td>
+                            <td class="p-4 text-gray-700">Analizar a los dos sospechosos de tu pantalla: uno es el
+                                Impostor, el otro no.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center text-xl">🔮</td>
+                            <td class="p-4 font-bold text-purple-600">Vidente</td>
+                            <td class="p-4 text-center font-bold text-purple-400">NO</td>
+                            <td class="p-4 text-gray-700">Sabes quién es el Impostor. Acúsale sin que él note tu rol o
+                                te "matará" al final.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center text-xl">👾</td>
+                            <td class="p-4 font-bold text-fuchsia-500">Glitch</td>
+                            <td class="p-4 text-center font-bold text-yellow-600">PARCIAL</td>
+                            <td class="p-4 text-gray-700">Rellenar los huecos de tu palabra corrupta (ej: C _ R _ O)
+                                usando las pistas ajenas.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center text-xl">😵‍💫</td>
+                            <td class="p-4 font-bold text-amber-600">Despistado</td>
+                            <td class="p-4 text-center font-bold text-orange-400">CATEGORIA</td>
+                            <td class="p-4 text-gray-700">Solo sabes la categoría. Da una pista genérica para pasar
+                                desapercibido.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center text-xl">👯</td>
+                            <td class="p-4 font-bold text-indigo-600">Gemelos</td>
+                            <td class="p-4 text-center font-bold text-green-400">SÍ</td>
+                            <td class="p-4 text-gray-700">Sabes quién es tu Gemelo o un Civil. Si uno es votado, ambos
+                                morís.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center text-xl">✍️</td>
+                            <td class="p-4 font-bold text-pink-600">Poeta</td>
+                            <td class="p-4 text-center font-bold text-indigo-300">SÍ</td>
+                            <td class="p-4 text-gray-700">Dar una pista válida que empiece obligatoriamente por la letra
+                                asignada.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="rule-card bg-orange-50 border border-orange-200">
+            <h3 class="text-orange-700">🛡️ La "Acusación Formal"</h3>
+            <p class="text-sm text-gray-600 mb-4">Si crees que el impostor ha sido muy obvio, puedes proponer una
+                votación formal en cualquier momento, aunque no sea tu turno.</p>
+            <div class="highlight-box bg-white border border-orange-200">
+                <ul class="rule-list">
+                    <li><strong>Riesgo:</strong> Si haces una acusación formal y fallas, tu voto valdrá 0 el resto de la
+                        partida (En caso de empate, sirve para romper el empate).</li>
+                    <li><strong>Votación Binaria:</strong> No se vota a quién echar, sino: "¿Estamos de acuerdo en que
+                        [Nombre] es el Impostor?". Si hay mayoría, se revela; si no, la ronda sigue.</li>
+                </ul>
             </div>
         </div>
 
