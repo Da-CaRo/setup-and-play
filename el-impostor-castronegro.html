@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>El Impostor | Setup & Play</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f8f8f8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+        }
+
+        .setup-header {
+            font-family: 'Bangers', system-ui;
+            text-align: center;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            color: #ef4444;
+            /* Rojo ajustado según tu preferencia */
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header {
+            font-family: 'Bangers', system-ui;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            color: #3498db;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .rule-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
+        }
+
+        .rule-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #eee;
+            line-height: 1.4;
+            color: #374151;
+        }
+
+        .rule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .highlight-box {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .script-box {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+    <div class="container">
+        <h1 class="setup-header">CASTRONEGRO</h1>
+        <p class="intro text-center text-gray-600 mb-6 border-b pb-4 italic">
+            "Cuando la noche cae en Castronegro, nadie está a salvo de los colmillos."
+        </p>
+
+        <h2 class="section-header">📱 1. El Reparto (Fase Digital)</h2>
+        <div class="rule-card bg-purple-50 border border-purple-200">
+            <h3 class="text-purple-700">🔐 Preparación del Dispositivo</h3>
+            <ul class="rule-list">
+                <li>Los jugadores se van pasando el móvil <strong>mano a mano</strong> en círculo.</li>
+                <li>Cuando recibas el móvil, selecciona tu nombre y <strong>memoriza tu rol</strong> antes de
+                    pasar el móvil, no olvides <strong>cerrar la ficha.</strong></li>
+            </ul>
+        </div>
+
+        <h2 class="section-header">👥 2. Roles de Castronegro</h2>
+        <div class="rule-card overflow-hidden border border-gray-200 p-0 mb-8">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800 text-white text-xs uppercase font-bold">
+                            <th class="p-4 text-center">Icono</th>
+                            <th class="p-4">Rol</th>
+                            <th class="p-4">Misión y Habilidad</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-sm">
+                        <tr>
+                            <td class="p-4 text-center text-xl">🐺</td>
+                            <td class="p-4 font-bold text-red-500">Hombre Lobo</td>
+                            <td class="p-4">Cada noche elegís a una víctima para devorarla. ¡No dejes que te descubran!
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🐺</td>
+                            <td class="p-4 font-bold text-slate-400">Lobo Blanco</td>
+                            <td class="p-4 text-gray-700">Despierta con los lobos, pero su objetivo es ser el único
+                                superviviente.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🐺</td>
+                            <td class="p-4 font-bold text-red-300">Lobo Cachorro</td>
+                            <td class="p-4 text-gray-700">Si el pueblo te lincha, los lobos se enfurecen y podrán matar
+                                a dos víctimas la noche siguiente.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🔮</td>
+                            <td class="p-4 font-bold text-indigo-400">Pitonisa</td>
+                            <td class="p-4 text-gray-700">El ojo que todo lo ve. Cada noche puedes conocer la verdadera
+                                identidad de un jugador.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🦊</td>
+                            <td class="p-4 font-bold text-orange-400">Zorro</td>
+                            <td class="p-4 text-gray-700">Si señalas a un grupo de 3 y hay al menos un lobo, el narrador
+                                asiente. Si no, pierdes tu poder.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🧙‍♀️</td>
+                            <td class="p-4 font-bold text-purple-500">Bruja</td>
+                            <td class="p-4 text-gray-700">Posees dos pociones: una para devolver la vida y otra para
+                                arrebatarla. Úsalas con sabiduría.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🛡️</td>
+                            <td class="p-4 font-bold text-sky-400">Protector</td>
+                            <td class="p-4 text-gray-700">Cada noche proteges a alguien de las garras de los lobos. No
+                                puedes proteger a la misma persona dos veces seguidas.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🐦‍⬛</td>
+                            <td class="p-4 font-bold text-blue-500">Cuervo</td>
+                            <td class="p-4 text-gray-700">Al final de la noche, señala a alguien. Ese jugador tendrá dos
+                                votos en contra automáticamente en el consejo.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🏹</td>
+                            <td class="p-4 font-bold text-emerald-500">Cazador</td>
+                            <td class="p-4 text-gray-700">Si mueres por cualquier motivo, tienes una última bala para
+                                llevarte a alguien contigo al instante.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">👴</td>
+                            <td class="p-4 font-bold text-slate-400">Anciano</td>
+                            <td class="p-4 text-gray-700">Sobrevive al primer ataque de los lobos. Si el pueblo lo
+                                lincha, todos los aldeanos pierden sus poderes.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">💘</td>
+                            <td class="p-4 font-bold text-pink-400">Cupido</td>
+                            <td class="p-4 text-gray-700">Une a dos almas al inicio. Si uno muere, el otro muere de
+                                pena. Su objetivo es sobrevivir juntos.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">👨‍🌾</td>
+                            <td class="p-4 font-bold text-gray-400">Aldeano</td>
+                            <td class="p-4 text-gray-700">No tienes poderes especiales, pero tu voto es la herramienta
+                                más poderosa para cazar a los lobos.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🎖️</td>
+                            <td class="p-4 font-bold text-amber-500">Alcalde</td>
+                            <td class="p-4 text-gray-700">Tu voto vale por dos en las votaciones. Si mueres, debes
+                                elegir a un sucesor para el cargo.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <p class="text-gray-600 mb-4 text-sm italic">Usa esta tabla para equilibrar el juego según el número de personas
+            en la mesa:</p>
+
+        <div class="rule-card overflow-hidden border border-gray-200 p-0 mb-8">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800 text-white text-xs uppercase tracking-wider font-bold">
+                            <th class="p-4 text-center">Jugadores</th>
+                            <th class="p-4">Lobos</th>
+                            <th class="p-4">Roles Sugeridos</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-sm">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">8</td>
+                            <td class="p-4 text-gray-700">1 + Lobo Cachorro</td>
+                            <td class="p-4 text-gray-600 italic">Pitonisa, Protector, Bruja y 3 Aldeanos.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">9</td>
+                            <td class="p-4 text-gray-700">2 Lobos</td>
+                            <td class="p-4 text-gray-600 italic">Pitonisa, Bruja, Cazador, Cupido y 3 Aldeanos.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">10</td>
+                            <td class="p-4 text-gray-700">2 Lobos</td>
+                            <td class="p-4 text-gray-600 italic">Pitonisa, Zorro, Protector, Bruja, Cupido y 3 Aldeanos.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">11</td>
+                            <td class="p-4 text-gray-700">3 Lobos</td>
+                            <td class="p-4 text-gray-600 italic">Zorro, Protector, Bruja, Cazador, Anciano y 3 Aldeanos.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">12</td>
+                            <td class="p-4 text-gray-700">2 + Lobo Cachorro</td>
+                            <td class="p-4 text-gray-600 italic">Pitonisa, Zorro, Protector, Bruja, Cuervo, Cazador y 2
+                                Aldeanos.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">13</td>
+                            <td class="p-4 text-gray-700">3 Lobos</td>
+                            <td class="p-4 text-gray-600 italic">Pitonisa, Zorro, Protector, Bruja, Cuervo, Cazador,
+                                Anciano, Cupido y 2 Aldeanos.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">14</td>
+                            <td class="p-4 text-gray-700">3 + Lobo Blanco</td>
+                            <td class="p-4 text-gray-600 italic">Pitonisa, Zorro, Protector, Bruja, Cuervo, Cazador,
+                                Anciano y 2 Aldeanos.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">15</td>
+                            <td class="p-4 text-gray-700">3 + Lobo Cachorro</td>
+                            <td class="p-4 text-gray-600 italic">Pitonisa, Zorro, Protector, Bruja, Cuervo, Cazador,
+                                Anciano, Cupido y 3 Aldeanos.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2 class="section-header">🎙️ 3. Guía del Narrador</h2>
+        <div class="rule-card bg-blue-50 border border-blue-200">
+            <h3 class="text-blue-700">🌑 Fase de Noche (Orden de llamada)</h3>
+            <div class="space-y-4">
+                <div>
+                    <span class="font-bold text-xs uppercase text-pink-400">1. Cupido (Solo la 1ª Noche):</span>
+                    <div class="script-box">"Cupido, despierta. Mira a todos estos mortales y señala a dos de ellos para
+                        que queden unidos por el amor eterno. (Cupido señala). Cupido, vuelve a dormir."
+                        (El narrador se levanta y toca suavemente la cabeza de los dos elegidos).</div>
+                </div>
+                <div>
+                    <span class="font-bold text-xs uppercase text-pink-400">2. Los Enamorados (Solo la 1ª noche):</span>
+                    <div class="script-box">"Enamorados, despertad. Mirad a los ojos de vuestra pareja y recordad que,
+                        si uno muere, el otro morirá de pena al instante. Reconoced vuestro bando. Enamorados, dormid."
+                    </div>
+                </div>
+                <div>
+                    <span class="font-bold text-xs uppercase text-sky-400">3. El Protector:</span>
+                    <div class="script-box">"Protector, despierta. ¿A quién vas a proteger esta noche de los colmillos
+                        de las bestias? Señala a alguien (excepto a quien protegiste ayer). (El Protector señala).
+                        Protector, vuelve a dormir."</div>
+                </div>
+                <div>
+                    <span class="font-bold text-xs uppercase text-indigo-400">4. La Pitonisa:</span>
+                    <div class="script-box">"Pitonisa, despierta. Elige a alguien para ver su verdadera esencia. (La
+                        Pitonisa señala). Esta es su identidad... (El narrador le muestra la carta del jugador o le hace
+                        un gesto). Pitonisa, duerme."</div>
+                </div>
+                <div>
+                    <span class="font-bold text-xs uppercase text-orange-400">5. El Zorro:</span>
+                    <div class="script-box">"Zorro, despierta. Elige a un jugador para rastrear su olor. (El Zorro
+                        señala). El narrador te indica: ¿Hay algún lobo en ese trío? (Pulgar arriba = SÍ / Pulgar abajo
+                        = NO). Zorro, duerme."</div>
+                </div>
+                <div>
+                    <span class="font-bold text-xs uppercase text-blue-500">6. El Cuervo:</span>
+                    <div class="script-box">"Cuervo, vuela sobre las casas y posate sobre la chimenea de un sospechoso.
+                        Señala a quién quieres poner bajo el punto de mira del pueblo. (El Cuervo señala). Cuervo,
+                        vuelve a dormir."</div>
+                </div>
+                <div>
+                    <span class="font-bold text-xs uppercase text-red-600">7. Lobos:</span>
+                    <div class="script-box">"Hombres Lobo, despertad, reconoced a vuestra manada y elegid a vuestra
+                        presa. (Los lobos señalan a alguien hasta ponerse de acuerdo). Lobos, vuestra sed de sangre está
+                        saciada por ahora. Dormid."</div>
+                </div>
+                <div>
+                    <span class="font-bold text-xs uppercase text-purple-500">8. La Bruja:</span>
+                    <div class="script-box">"Bruja, despierta. Esta noche han atacado a este jugador (Señala a la
+                        víctima). Tienes una poción de vida para salvarlo y una de muerte para eliminar a otro. ¿Quieres
+                        usar alguna? (La Bruja asiente o niega). Bruja, vuelve a dormir."</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="rule-card bg-yellow-50 border border-yellow-200">
+            <h3 class="text-yellow-700">☀️ Fase de Día</h3>
+            <div class="mb-4">
+                <span class="font-bold text-xs uppercase text-gray-700">9. El Despertar:</span>
+                <div class="script-box">"El sol sale en Castronegro, pero no todos han sobrevivido a la oscuridad.
+                    ¡Pueblo, despertad!"</div>
+            </div>
+            <div class="mb-4">
+                <span class="font-bold text-xs uppercase text-amber-500">10. Elección del Alcalde (Solo Día 1):</span>
+                <div class="script-box">"¡El pueblo despierta! Pero antes de nada, debemos elegir a un Alcalde. Que en
+                    caso de empate tendrá la ultima palabra Presentad vuestras candidaturas y votad."</div>
+            </div>
+            <div class="mb-4">
+                <span class="font-bold text-xs uppercase text-gray-700">11. La Noticia:</span>
+
+                <div class="script-box"><strong>Si alguien muere:</strong> "Lamentablemente, el cuerpo de [Nombre] ha
+                    sido hallado esta mañana. Era un/a [Revela su rol]."</div>
+                <div class="script-box"><strong>Si hay doble muerte</strong>: "Pero las tragedias no vienen solas...
+                    [Nombre] también ha muerto, era un/a [Revela rol]."</div>
+                <div class="script-box"><strong>Si nadie muere:</strong> "¡Milagro! El sol brilla y todos estáis sanos y
+                    salvos. Los lobos se han ido con el estómago vacío."</div>
+            </div>
+
+            <div class="mb-4">
+                <span class="font-bold text-xs uppercase text-gray-700">12. El Debate y Votación:</span>
+                <div class="script-box">"Pueblo, las sospechas crecen. El Cuervo ha señalado a [Nombre], que ya cuenta
+                    con dos votos en su contra. Tenéis 5 minutos para debatir antes de que alguien suba a la horca."
+                </div>
+            </div>
+            <div class="mb-4">
+                <span class="font-bold text-xs uppercase text-gray-700">13. El Linchamiento:</span>
+                <div class="script-box">"A la cuenta de tres, señalad a quien creáis culpable. Una, dos... ¡tres!
+                    [Nombre], por mayoría de votos, el pueblo decide ejecutarte."</div>
+            </div>
+
+            <ul class="rule-list text-sm">
+                <li><strong>Silencio absoluto:</strong> Mientras tengáis los ojos cerrados, no habléis ni hagáis gestos.
+                    Se recomienda hacer un poco de ruido rítmico con los dedos en la mesa para camuflar los movimientos
+                    del narrador.
+                </li>
+                <li><strong>Los muertos no hablan:</strong> En cuanto el narrador confirme tu muerte, no puedes decir ni
+                    una palabra, ni hacer gestos, ni ayudar a tu bando. ¡Eres un fantasma!
+                </li>
+                <li><strong>💡 Consejo final para el Narrador:</strong> Para evitar que se oiga por dónde caminas,
+                    <strong>no te quedes parado</strong> cerca del personaje al que estás llamando. Muévete
+                    constantemente por la sala mientras hablas para que tu voz sea una fuente de sonido confusa y no
+                    sepan a quién estás mirando.
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div id="footer-container"></div>
+</body>
+<script src="js/include.js"></script>
+
+</html>
