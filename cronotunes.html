@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>Crono Tunes | Setup & Play</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f8f8f8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+        }
+
+        /* Título con el Morado de acento del sitio */
+        .setup-header {
+            font-family: 'Bangers', system-ui;
+            text-align: center;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            color: #9333ea;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header {
+            font-family: 'Bangers', system-ui;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            color: #3498db;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .rule-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
+        }
+
+        .rule-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #eee;
+            line-height: 1.4;
+            color: #374151;
+        }
+
+        .rule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .script-box {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            border-left: 4px solid #9333ea;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+    <div class="container">
+        <h1 class="setup-header">CRONO TUNES</h1>
+
+        <p class="intro text-center text-gray-600 mb-6 border-b pb-4 italic">
+            "Ordena los éxitos musicales en tu línea del tiempo y demuestra que eres una enciclopedia musical viviente."
+        </p>
+
+        <h2 class="section-header">🎸 1. Preparación</h2>
+        <div class="rule-card bg-purple-50 border border-purple-200">
+            <h3 class="text-purple-700 font-bold flex items-center gap-2">🎼 Inicio del Viaje</h3>
+            <ul class="rule-list">
+                <li>Cada jugador recibe <strong>una carta inicial</strong> con su año visible y la coloca frente a él.
+                </li>
+                <li>Un jugador prepara el dispositivo para reproducir los fragmentos musicales.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-header">⏳ 2. Cómo Jugar</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="rule-card bg-blue-50 border border-blue-200">
+                <h3 class="text-blue-700 font-bold">▶️ Escucha y Ubica</h3>
+                <ul class="rule-list">
+                    <li>Se reproduce una canción. Debes decidir <strong>dónde encaja</strong> en tu cronología personal.
+                    </li>
+                    <li>Puedes colocarla al principio, al final o entre dos cartas ya existentes.</li>
+                </ul>
+            </div>
+
+            <div class="rule-card bg-yellow-50 border border-yellow-200">
+                <h3 class="text-yellow-700 font-bold">🔍 Revelar y Ganar</h3>
+                <ul class="rule-list">
+                    <li>Se revela el año. Si la posición es correcta, te quedas la carta.</li>
+                    <li><strong>Regla de Empate:</strong> Si la canción es del <strong>mismo año</strong> que una que ya
+                        tienes, da igual si la pones justo antes o después; ¡se considera acierto!</li>
+                    <li>Si fallas, la carta se descarta y el turno pasa.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-header">🏆 3. Fin de la Partida</h2>
+        <div class="rule-card bg-gray-50 border border-gray-200">
+            <div class="text-center p-4">
+                <p class="text-xl font-bold text-gray-800">El primer jugador en completar una línea de <span
+                        class="text-purple-600">10 canciones ordenadas</span> gana la partida.</p>
+            </div>
+        </div>
+
+        <div class="rule-card bg-orange-50 border border-orange-200 mt-8">
+            <h3 class="text-orange-700 font-bold">💡 Reglas de Oro</h3>
+            <ul class="rule-list">
+                <li>🚫 <strong>Juego Limpio:</strong> Prohibido el uso de aplicaciones de reconocimiento de música como
+                    Shazam.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer-container"></div>
+</body>
+<script src="js/include.js"></script>
+
+</html>
