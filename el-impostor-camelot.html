@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>El Impostor Camelot | Setup & Play</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f8f8f8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+        }
+
+        .setup-header {
+            font-family: 'Bangers', system-ui;
+            text-align: center;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            color: #ef4444;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header {
+            font-family: 'Bangers', system-ui;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            color: #3498db;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .rule-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
+        }
+
+        .rule-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #eee;
+            line-height: 1.4;
+            color: #374151;
+        }
+
+        .rule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .highlight-box {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .script-box {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+    <div class="container">
+        <h1 class="setup-header">CAMELOT</h1>
+        <p class="intro text-center text-gray-600 mb-6 border-b pb-4 italic">
+            "El futuro de Camelot está en juego. ¿Lucharás por el Rey Arturo o gobernarás desde las sombras con Mordred?"
+        </p>
+
+        <h2 class="section-header">📱 1. El Reparto (Fase Digital)</h2>
+        <div class="rule-card bg-purple-50 border border-purple-200">
+            <h3 class="text-purple-700">🔐 Preparación del Dispositivo</h3>
+            <ul class="rule-list">
+                <li>Los jugadores se van pasando el móvil <strong>mano a mano</strong> en círculo.</li>
+                <li>Cuando recibas el móvil, selecciona tu nombre y <strong>memoriza tu rol</strong> antes de
+                    pasar el móvil, no olvides <strong>cerrar la ficha.</strong></li>
+            </ul>
+        </div>
+
+        <h2 class="section-header">👥 2. Roles de Camelot</h2>
+        <div class="rule-card overflow-hidden border border-gray-200 p-0 mb-8">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800 text-white text-xs uppercase font-bold">
+                            <th class="p-4 text-center">Icono</th>
+                            <th class="p-4">Rol</th>
+                            <th class="p-4">Misión y Habilidad</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-sm">
+                        <tr>
+                            <td class="p-4 text-center text-xl">🧙‍♂️</td>
+                            <td class="p-4 font-bold text-indigo-400">Merlín</td>
+                            <td class="p-4 text-gray-700">Leal a Arturo. Conoce a todos los esbirros del mal (excepto a Mordred). Si su bando gana pero el Asesino lo descubre al final, pierden la partida.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🛡️</td>
+                            <td class="p-4 font-bold text-sky-400">Percival</td>
+                            <td class="p-4 text-gray-700">Leal a Arturo. Al inicio conoce la identidad de Merlín y Morgana, pero no sabe quién es quién. Debe proteger la identidad de Merlín.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🗡️</td>
+                            <td class="p-4 font-bold text-red-500">Asesino</td>
+                            <td class="p-4 text-gray-700">Esbirro del mal. Si el bien logra 3 misiones con éxito, tiene una oportunidad final para adivinar quién es Merlín y dar la victoria al mal.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🔮</td>
+                            <td class="p-4 font-bold text-purple-500">Morgana</td>
+                            <td class="p-4 text-gray-700">Esbirro del mal. Se presenta ante Percival haciéndose pasar por Merlín para confundir a los leales de Arturo.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">👑</td>
+                            <td class="p-4 font-bold text-slate-400">Mordred</td>
+                            <td class="p-4 text-gray-700">Líder del mal. Su identidad permanece oculta para Merlín durante la fase nocturna del inicio.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🎭</td>
+                            <td class="p-4 font-bold text-orange-400">Oberón</td>
+                            <td class="p-4 text-gray-700">Esbirro del mal desvinculado. No se revela ante sus aliados malvados ni sabe quiénes son ellos durante la noche.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">👨‍🌾</td>
+                            <td class="p-4 font-bold text-blue-500">Servidor Leal de Arturo</td>
+                            <td class="p-4 text-gray-700">Leal a Arturo. Sin conocimientos ni habilidades especiales; confía en su lógica para descubrir a los impostores en la mesa.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-center text-xl">🐺</td>
+                            <td class="p-4 font-bold text-red-600">Esbirro de Mordred</td>
+                            <td class="p-4 text-gray-700">Lucha por el mal. Conoce a sus aliados (salvo Oberón) y su objetivo es sabotear 3 misiones.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <p class="text-gray-600 mb-4 text-sm italic">Usa esta tabla para equilibrar el juego y configurar los equipos según el número de personas en la mesa:</p>
+
+        <div class="rule-card overflow-hidden border border-gray-200 p-0 mb-8">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800 text-white text-xs uppercase tracking-wider font-bold">
+                            <th class="p-4 text-center">Jugadores</th>
+                            <th class="p-4">Bien / Mal</th>
+                            <th class="p-4">Roles Sugeridos</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-sm">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">5</td>
+                            <td class="p-4 text-gray-700">3 Leales / 2 Esbirros</td>
+                            <td class="p-4 text-gray-600 italic">Merlín, Percival, 1 Servidor vs. Asesino, Morgana.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">6</td>
+                            <td class="p-4 text-gray-700">4 Leales / 2 Esbirros</td>
+                            <td class="p-4 text-gray-600 italic">Merlín, Percival, 2 Servidores vs. Asesino, Morgana.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">7</td>
+                            <td class="p-4 text-gray-700">4 Leales / 3 Esbirros</td>
+                            <td class="p-4 text-gray-600 italic">Merlín, Percival, 2 Servidores vs. Asesino, Morgana, Oberón (o Mordred).</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">8</td>
+                            <td class="p-4 text-gray-700">5 Leales / 3 Esbirros</td>
+                            <td class="p-4 text-gray-600 italic">Merlín, Percival, 3 Servidores vs. Asesino, Morgana, Mordred.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">9</td>
+                            <td class="p-4 text-gray-700">6 Leales / 3 Esbirros</td>
+                            <td class="p-4 text-gray-600 italic">Merlín, Percival, 4 Servidores vs. Asesino, Morgana, Mordred.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 text-center font-bold">10</td>
+                            <td class="p-4 text-gray-700">6 Leales / 4 Esbirros</td>
+                            <td class="p-4 text-gray-600 italic">Merlín, Percival, 4 Servidores vs. Asesino, Morgana, Mordred, Oberón.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2 class="section-header">🎙️ 3. Guía de Locución (Fase Nocturna)</h2>
+        <div class="rule-card bg-blue-50 border border-blue-200">
+            <h3 class="text-blue-700">🌑 Revelación de Roles</h3>
+            <div class="space-y-4">
+                <div>
+                    <span class="font-bold text-xs uppercase text-red-600">1. Reconocimiento del Mal (excepto Oberón):</span>
+                    <div class="script-box">"Todos cerrad los ojos y los Esbirros de Mordred (excepto Oberón) abrid los ojos y reconoced a vuestros aliados. (Pausa). Esbirros del Mal, cerrad los ojos."</div>
+                </div>
+                <div>
+                    <span class="font-bold text-xs uppercase text-indigo-400">2. Revelación ante Merlín:</span>
+                    <div class="script-box">"Esbirros del Mal (excepto Mordred), poned el puño al frente y levantad el pulgar para que Merlín os identifique. Merlín, abre los ojos y mira a las fuerzas del mal. (Pausa). Esbirros, bajad los pulgares. Merlín, cierra los ojos."</div>
+                </div>
+                <div>
+                    <span class="font-bold text-xs uppercase text-sky-400">3. Revelación ante Percival:</span>
+                    <div class="script-box">"Merlín y Morgana, levantad el pulgar. Percival, abre los ojos e identifica a los dos magos. (Pausa). Bajad los pulgares. Percival, cierra los ojos."</div>
+                </div>
+                <div>
+                    <span class="font-bold text-xs uppercase text-amber-500">4. El Amanecer:</span>
+                    <div class="script-box">"¡Todos podéis abrir los ojos! El destino de Camelot está en vuestras manos."</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rule-card bg-yellow-50 border border-yellow-200">
+            <h3 class="text-yellow-700">☀️ Desarrollo del Juego (Fases de la Misión)</h3>
+            <div class="mb-4">
+                <span class="font-bold text-xs uppercase text-amber-500">1. Propuesta de Equipo:</span>
+                <div class="script-box">"El Líder actual elige a un número de caballeros (según el número de la misión) para formar la patrulla que irá a la misión."</div>
+            </div>
+            <div class="mb-4">
+                <span class="font-bold text-xs uppercase text-gray-700">2. Votación del Equipo (Pública):</span>
+                <div class="script-box">"A la cuenta de tres, todo el pueblo vota pÚblicamente (Aprobar o Rechazar el equipo). Si se rechaza 5 veces seguidas, el Mal gana automáticamente."</div>
+            </div>
+            <div class="mb-4">
+                <span class="font-bold text-xs uppercase text-gray-700">3. Ejecución de la Misión (En Secreto):</span>
+                <div class="script-box">"Los miembros del equipo votan en secreto (Éxito o Sabotaje). Los Leales a Arturo SIEMPRE votan Éxito. Los Esbirros del Mal pueden elegir votar Éxito o Sabotaje."</div>
+            </div>
+            <div class="mb-4">
+                <span class="font-bold text-xs uppercase text-red-600">4. Caza de Merlín (Fin de la Partida):</span>
+                <div class="script-box">"Si el Bien completa 3 Misiones con Éxito, los malvados aún tienen una oportunidad. El Asesino se revela y señala a quién cree que es Merlín. Si acierta, ¡el Mal gana la partida!"</div>
+            </div>
+
+            <ul class="rule-list text-sm">
+                <li><strong>Regla del fallo doble:</strong> En partidas de 7 o más jugadores, la 4ª misión requiere <strong>2 cartas de Sabotaje</strong> para fracasar. En las demás misiones, un solo sabotaje basta.</li>
+                <li><strong>Sin eliminación:</strong> En Avalon ningún jugador es eliminado ni muere durante la partida. Todos juegan hasta el final.</li>
+                <li><strong>💡 Consejo final:</strong> Al barajar y revelar las cartas de la Misión, hazlo en secreto absoluto para que nadie sepa qué jugador en concreto ha votado el Sabotaje.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer-container"></div>
+</body>
+<script src="js/include.js"></script>
+
+</html>
